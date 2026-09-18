@@ -2,8 +2,9 @@
 layout: post
 title: "이메일 발송을 이벤트로 떼어내고, 실패를 재시도 가능과 불가로 나누기"
 date: 2025-10-08 09:00:00 +0900
-categories: [study]
+categories: [decisions]
 tags: [team18-be, spring-boot, email, async, retry]
+summary: "지원서 제출 응답과 이메일 발송을 분리하고, 실패를 재시도할 것과 말 것으로 나눈 설계"
 ---
 
 안녕하세요, 고준서입니다. 동아리움이라는 대학 동아리 지원 서비스의 백엔드를 팀에서 맡고 있고(백엔드 3인, 프론트엔드 3인), 지원서 제출과 합불 결과를 알리는 이메일은 제가 담당했습니다. 이메일 관련 커밋 38개 중 35개가 제 것이에요. 이 글은 2025년 10월 8일에 머지된 [PR #97](https://github.com/kakao-tech-campus-3rd-step3/Team18_BE/pull/97)에서 메일 발송을 요청 처리에서 떼어내고, 발송 실패를 "다시 보낼 것"과 "포기할 것"으로 나눈 이야기입니다. 그 결정이 8일 뒤에 어떤 장애로 이어졌는지는 [다음 글]({{ "/2025/10/16/async-listener-lazy-init/" | relative_url }})에 따로 적었습니다.

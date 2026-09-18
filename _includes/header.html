@@ -20,19 +20,14 @@
           <div class="dropdown-menu">
             {%- assign sorted_projects = site.projects | sort: "order" -%}
             {%- for proj in sorted_projects -%}
-              <a href="{{ proj.url | relative_url }}">{{ proj.title | escape }}{% if proj.kind contains "팀" %} <small>(팀)</small>{% endif %}</a>
+              <a href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title | escape }}{% if proj.kind contains "팀" %} <small>(팀)</small>{% endif %}</a>
             {%- endfor -%}
           </div>
         </div>
 
-        <div class="nav-dropdown">
-          <a class="page-link" href="{{ "/notes/" | relative_url }}">기록</a>
-          <div class="dropdown-menu">
-            <a href="{{ "/notes/study/" | relative_url }}">공부 노트</a>
-            <a href="{{ "/notes/troubleshooting/" | relative_url }}">문제 해결 기록</a>
-          </div>
-        </div>
-
+        <a class="page-link" href="{{ "/notes/troubleshooting/" | relative_url }}">문제 해결</a>
+        <a class="page-link" href="{{ "/notes/decisions/" | relative_url }}">설계 결정</a>
+        <a class="page-link" href="{{ "/notes/study/" | relative_url }}">공부 노트</a>
         <a class="page-link" href="{{ "/history/" | relative_url }}">연혁</a>
         <a class="page-link" href="{{ "/about/" | relative_url }}">소개</a>
         <a class="page-link" href="{{ "/contact/" | relative_url }}">연락처</a>

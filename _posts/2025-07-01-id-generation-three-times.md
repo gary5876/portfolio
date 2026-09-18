@@ -4,6 +4,7 @@ title: "멘토의 질문 하나가 ID 발번 코드를 세 번 바꿨습니다: 
 date: 2025-07-01 09:00:00 +0900
 categories: [study]
 tags: [kakao-tech-campus, code-review, spring-boot, jdbc]
+summary: "멘토의 질문 두 개에 ID 발번 코드를 일주일에 세 번 고친 코드리뷰 미션 기록"
 ---
 
 > Java에서 volatile, synchronized, AtomicLong 는 어떤 기능들일까요?

@@ -4,15 +4,6 @@ title: 공부 노트
 permalink: /notes/study/
 ---
 
-<ul class="post-list">
-  {% for post in site.categories.study %}
-  <li>
-    <span class="post-meta">{{ post.date | date: "%Y년 %-m월 %-d일" }}</span>
-    <h3>
-      <a class="post-link" href="{{ post.url | relative_url }}">
-        {{ post.title | escape }}
-      </a>
-    </h3>
-  </li>
-  {% endfor %}
-</ul>
+읽고 배운 것과 코드리뷰에서 받은 지적을 정리한 글입니다.
+
+{% include post-list.html posts=site.categories.study %}

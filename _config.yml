@@ -19,7 +19,8 @@ minima:
 category_labels:
   projects: 프로젝트
   study: 공부 노트
-  troubleshooting: 문제 해결 기록
+  troubleshooting: 문제 해결
+  decisions: 설계 결정
 
 plugins:
   - jekyll-feed

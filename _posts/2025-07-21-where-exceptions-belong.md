@@ -4,6 +4,7 @@ title: "예외를 던지는 책임은 어디에: Repository로 옮겼다가 Serv
 date: 2025-07-21 09:00:00 +0900
 categories: [study]
 tags: [kakao-tech-campus, code-review, spring-boot, layering]
+summary: "없는 데이터의 예외를 어느 계층에서 던질지, 옮겼다가 되돌린 코드리뷰 기록"
 ---
 
 > 이렇게 null 을 던지는 방식보다는, exception 을 던지는 방식이 권장됩니다.

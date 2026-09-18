@@ -365,7 +365,33 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
   a { color: $brand-color; }
 }
 
-.project-summary { color: $grey-color-dark; }
+.project-summary { color: $grey-color-dark; margin-bottom: 4px; }
+.project-result { color: $text-color; margin-bottom: 8px; }
+.project-repo { font-family: $mono-font-family; font-size: $small-font-size; color: $grey-color; margin-top: -8px; }
+
+.project-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 6px 16px;
+  margin: 16px 0;
+  padding: 16px 20px;
+  border: 1px solid $grey-color-light;
+  border-radius: 12px;
+  dt { font-weight: 600; color: $grey-color-dark; }
+  dd { margin: 0; }
+}
+
+.post-summary { color: $grey-color-dark; font-size: 0.95em; margin: 4px 0 0; }
+.post-project { font-size: $small-font-size; color: $grey-color; margin-bottom: 8px; }
+.post-project-kind { border: 1px solid $grey-color-light; border-radius: 4px; padding: 0 6px; margin-left: 4px; }
+.post-footer {
+  margin-top: $spacing-unit;
+  padding-top: $spacing-unit * 0.5;
+  border-top: 1px solid $grey-color-light;
+  font-size: 0.95em;
+}
+.more-link { text-align: right; }
+.cat-decisions      { background: #e6e0f0; color: #4b3b7a; }
 
 .related-posts {
   margin-top: $spacing-unit * 1.5;
@@ -514,6 +540,11 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
   .skip-link { background: $dark-text; color: $dark-bg; }
 
   .stack-chip { background: $dark-border; }
+  .project-facts { border-color: $dark-border; dt { color: $dark-grey; } }
+  .project-result { color: $dark-text; }
+  .post-summary, .post-project, .project-repo { color: $dark-grey; }
+  .post-footer { border-color: $dark-border; }
+  .post-project-kind { border-color: $dark-border; }
   .project-role, .project-summary, .timeline-note { color: $dark-grey; }
   .project-links a { color: $dark-accent; }
   .related-posts { border-color: $dark-border; }

@@ -4,8 +4,15 @@ layout: default
 <article class="project">
   <header class="project-header">
     {%- if page.kind -%}<span class="kind-badge">{{ page.kind }}</span>{%- endif -%}
-    <h1 class="post-title">{{ page.title }}</h1>
-    {%- if page.role -%}<p class="project-role">{{ page.role }}</p>{%- endif -%}
+    <h1 class="post-title">{{ page.display_name | default: page.title }}</h1>
+    {%- if page.display_name -%}<p class="project-repo">저장소 이름: {{ page.title }}</p>{%- endif -%}
+
+    <dl class="project-facts">
+      {%- if page.period -%}<dt>기간</dt><dd>{{ page.period }}</dd>{%- endif -%}
+      {%- if page.kind -%}<dt>구성</dt><dd>{{ page.kind }}</dd>{%- endif -%}
+      {%- if page.role -%}<dt>내 역할</dt><dd>{{ page.role | replace: "내 담당: ", "" }}</dd>{%- endif -%}
+      {%- if page.result -%}<dt>결과</dt><dd>{{ page.result }}</dd>{%- endif -%}
+    </dl>
 
     {%- if page.stack -%}
     <div class="tag-list">
@@ -15,9 +22,21 @@ layout: default
 
     <div class="project-links">
       {%- if page.live_demo -%}<a href="{{ page.live_demo }}" target="_blank" rel="noopener">실제 서비스 보기 ↗</a>{%- endif -%}
-      {%- if page.github -%}<a href="{{ page.github }}" target="_blank" rel="noopener">GitHub ↗</a>{%- endif -%}
+      {%- if page.github -%}<a href="{{ page.github }}" target="_blank" rel="noopener">GitHub에서 코드 보기 ↗</a>{%- endif -%}
     </div>
   </header>
+
+  {%- if page.featured -%}
+  <section class="featured-posts">
+    <h2 class="post-list-heading">먼저 볼 글</h2>
+    {%- assign featured_posts = "" | split: "" -%}
+    {%- for url in page.featured -%}
+      {%- assign p = site.posts | where: "url", url | first -%}
+      {%- if p -%}{%- assign featured_posts = featured_posts | push: p -%}{%- endif -%}
+    {%- endfor -%}
+    {%- include post-list.html posts=featured_posts -%}
+  </section>
+  {%- endif -%}
 
   <div class="post-content e-content">
     {{ content }}
@@ -26,18 +45,8 @@ layout: default
   {%- assign related = site.posts | where_exp: "post", "post.tags contains page.tag" -%}
   {%- if related.size > 0 -%}
   <section class="related-posts">
-    <h2 class="post-list-heading">이 프로젝트에서 나온 글</h2>
-    <ul class="post-list">
-      {%- for post in related -%}
-      <li class="post-card">
-        <div class="post-card-meta">
-          <span class="cat-badge cat-{{ post.categories | first }}">{%- assign cat = post.categories | first -%}{{ site.category_labels[cat] | default: cat }}</span>
-          <span class="post-meta">{{ post.date | date: "%Y년 %-m월 %-d일" }}</span>
-        </div>
-        <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
-      </li>
-      {%- endfor -%}
-    </ul>
+    <h2 class="post-list-heading">이 프로젝트에서 나온 글 전체 ({{ related.size }}편)</h2>
+    {%- include post-list.html posts=related -%}
   </section>
   {%- endif -%}
 </article>

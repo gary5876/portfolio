@@ -4,6 +4,7 @@ title: "@Async 리스너에서 터진 LazyInitializationException: 이메일이 
 date: 2025-10-16 09:00:00 +0900
 categories: [troubleshooting]
 tags: [team18-be, spring-boot, jpa, async, email]
+summary: "제출은 됐는데 이메일이 조용히 안 나가던 장애, 이틀 전 내 커밋이 원인이었던 기록"
 ---
 
 안녕하세요, 고준서입니다. 동아리움이라는 대학 동아리 지원 서비스의 백엔드를 팀에서 맡고 있고(백엔드 3인, 프론트엔드 3인), 지원서를 내면 나가는 알림 이메일은 제가 담당했습니다. 2025년 10월 16일 저녁, 운영 로그에서 이런 줄을 봤습니다.

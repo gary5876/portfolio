@@ -9,6 +9,10 @@ role: "내 담당: 지원서 도메인 API, DB 모델링, 통계, 공지, 이메
 github: https://github.com/kakao-tech-campus-3rd-step3/Team18_BE
 live_demo: https://www.dongarium.co.kr/
 order: 1
+display_name: "동아리움 (대학 동아리 지원 서비스)"
+period: "2025.08 ~ 2026.09 (개발 3개월, 실서비스 10개월)"
+result: "GA 기준 이용자 2026년 1학기 약 3,100명, 2학기 866명(9월 기준). 통계, 공지, 이메일 알림을 전담"
+featured: ["/2026/08/18/statistics-cache-aside/", "/2025/10/16/async-listener-lazy-init/"]
 ---
 
 대학 동아리 모집과 지원자 관리 서비스. 카카오테크캠퍼스 팀 프로젝트로 시작해 3개월 개발 후 10개월간 실서비스로 운영했습니다.

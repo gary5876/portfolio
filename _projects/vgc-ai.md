@@ -8,6 +8,10 @@ kind: "개인 프로젝트"
 role: "실험 파이프라인, 통계 게이트, 자율 루프 설계 단독"
 github: https://github.com/gary5876/vgc-ai
 order: 3
+display_name: "vgc-ai (포켓몬 배틀 게임 AI)"
+period: "2026.05 ~ 2026.06"
+result: "교내 리그전 25팀 중 1위. 코딩 에이전트의 제안을 통계 게이트로 걸러 채택하는 구조"
+featured: ["/2026/05/12/wilson-gate-16-verdicts/", "/2026/05/22/empty-meta-bench-harness/"]
 ---
 
 IEEE CoG 2026 포켓몬 VGC AI 대회를 목표로 시작한 게임 AI(대회 제출은 하지 않음). 에이전트 자체보다 "개선을 어떻게 검증하는가"를

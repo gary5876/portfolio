@@ -2,8 +2,9 @@
 layout: post
 title: "프로바이더 셋, 서킷 브레이커 셋: 401은 왜 장애로 세지 않나"
 date: 2026-03-31 09:00:00 +0900
-categories: [study]
+categories: [decisions]
 tags: [study-helper, fastapi, resilience, llm]
+summary: "LLM 세 곳을 연동하며 한 사용자의 잘못된 키가 전체를 막지 않게 한 규칙"
 ---
 
 안녕하세요, 고준서입니다. study-helper는 PDF를 올리면 LLM으로 학습 노트와 퀴즈를 만들어 주는 서비스이고, 혼자 만들었습니다. 사용자는 Claude, GPT, TimelyGPT 중 하나를 고르고 자기 API 키를 넣어요. 2026년 3월 31일에 프로바이더를 하나에서 셋으로 늘리면서 클라이언트마다 서킷 브레이커를 하나씩 뒀는데, 그 브레이커가 무엇을 실패로 세고 무엇을 세지 않는지를 코드 기준으로 정리해 둡니다. 세 클라이언트와 브레이커 구현은 Claude와 같이 작업했고, 그날 커밋에는 공동 작성자로 Claude가 찍혀 있습니다.
