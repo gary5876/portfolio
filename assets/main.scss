@@ -268,6 +268,8 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 }
 
 .post-card {
+  position: relative;
+  cursor: pointer;
   padding: 20px;
   margin-bottom: 20px;
   border: 1px solid $grey-color-light;
@@ -283,6 +285,16 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 }
 
 .post-card-meta { margin-bottom: 6px; }
+
+// 카드 전체를 덮는 투명 링크. 안쪽 링크는 위에 올려 둔다.
+.card-cover {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 12px;
+}
+.post-card > *:not(.card-cover) { position: relative; z-index: 2; pointer-events: none; }
+.post-card a:not(.card-cover) { pointer-events: auto; }
 
 .post-link {
   color: $text-color;

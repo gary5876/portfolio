@@ -2,6 +2,7 @@
 <ul class="post-list">
   {%- for post in include.posts -%}
   <li class="post-card">
+    <a class="card-cover" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }}"></a>
     <div class="post-card-meta">
       {%- assign cat = post.categories | first -%}
       <span class="cat-badge cat-{{ cat }}">{{ site.category_labels[cat] | default: cat }}</span>

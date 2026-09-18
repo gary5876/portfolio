@@ -8,6 +8,7 @@ permalink: /projects/
 <ul class="post-list">
   {%- for proj in sorted_projects -%}
   <li class="post-card project-card">
+    <a class="card-cover" href="{{ proj.url | relative_url }}" aria-label="{{ proj.display_name | default: proj.title | escape }}"></a>
     {%- if proj.kind -%}<span class="kind-badge">{{ proj.kind }}</span>{%- endif -%}
     <h3><a class="post-link" href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title | escape }}</a></h3>
     {%- if proj.period -%}<p class="post-meta">{{ proj.period }}</p>{%- endif -%}
