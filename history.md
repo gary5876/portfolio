@@ -1,6 +1,6 @@
 ---
 layout: page
-title: History
+title: 연혁
 permalink: /history/
 ---
 

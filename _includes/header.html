@@ -16,7 +16,7 @@
       <div class="trigger">
 
         <div class="nav-dropdown">
-          <a class="page-link" href="{{ "/projects/" | relative_url }}">Projects</a>
+          <a class="page-link" href="{{ "/projects/" | relative_url }}">프로젝트</a>
           <div class="dropdown-menu">
             {%- assign sorted_projects = site.projects | sort: "order" -%}
             {%- for proj in sorted_projects -%}
@@ -26,16 +26,16 @@
         </div>
 
         <div class="nav-dropdown">
-          <a class="page-link" href="{{ "/notes/" | relative_url }}">Notes</a>
+          <a class="page-link" href="{{ "/notes/" | relative_url }}">기록</a>
           <div class="dropdown-menu">
-            <a href="{{ "/notes/study/" | relative_url }}">Study</a>
-            <a href="{{ "/notes/postmortem/" | relative_url }}">Postmortem</a>
+            <a href="{{ "/notes/study/" | relative_url }}">공부 노트</a>
+            <a href="{{ "/notes/postmortem/" | relative_url }}">문제 해결 기록</a>
           </div>
         </div>
 
-        <a class="page-link" href="{{ "/history/" | relative_url }}">History</a>
-        <a class="page-link" href="{{ "/about/" | relative_url }}">About</a>
-        <a class="page-link" href="{{ "/contact/" | relative_url }}">Contact</a>
+        <a class="page-link" href="{{ "/history/" | relative_url }}">연혁</a>
+        <a class="page-link" href="{{ "/about/" | relative_url }}">소개</a>
+        <a class="page-link" href="{{ "/contact/" | relative_url }}">연락처</a>
 
       </div>
     </nav>

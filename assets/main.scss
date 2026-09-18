@@ -26,7 +26,7 @@ $content-width:    740px !default;
 
 $mono-font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
 
-// Dark-mode palette. Not an inversion — hand-tuned so accent, borders and
+// Dark-mode palette. Not an inversion: hand-tuned so accent, borders and
 // code blocks stay legible against a warm near-black instead of pure #000.
 $dark-bg:          #18140f;
 $dark-surface:      #211b14;
@@ -100,10 +100,9 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 }
 
 .site-nav .page-link {
-  font-family: $mono-font-family;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-family: $base-font-family;
+  font-size: 15px;
+  font-weight: 500;
   position: relative;
   text-decoration: none;
 
@@ -216,10 +215,9 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 .hero-links {
   display: flex;
   gap: 16px;
-  font-family: $mono-font-family;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-family: $base-font-family;
+  font-size: 15px;
+  font-weight: 500;
 
   a { color: $brand-color; }
 }
@@ -233,10 +231,9 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 // ---------------------------------------------------------------
 .cat-badge {
   display: inline-block;
-  font-family: $mono-font-family;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
+  font-family: $base-font-family;
+  font-size: 12px;
+  font-weight: 500;
   padding: 2px 8px;
   border-radius: 4px;
   margin-right: 8px;
@@ -260,7 +257,7 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
   margin: 0 6px 6px 0;
 }
 
-.read-time::before { content: "· "; }
+.read-time::before { content: ", "; }
 
 // ---------------------------------------------------------------
 // Post list (cards)
@@ -361,10 +358,9 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
   margin: 16px 0 8px;
   display: flex;
   gap: 16px;
-  font-family: $mono-font-family;
-  font-size: 14px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  font-family: $base-font-family;
+  font-size: 15px;
+  font-weight: 500;
 
   a { color: $brand-color; }
 }
@@ -472,7 +468,7 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 .site-footer { border-top: 1px solid $grey-color-light; }
 
 // ---------------------------------------------------------------
-// Dark mode — hand-tuned palette, not an inversion
+// Dark mode: hand-tuned palette, not an inversion
 // ---------------------------------------------------------------
 @media (prefers-color-scheme: dark) {
   body { background: $dark-bg; color: $dark-text; }

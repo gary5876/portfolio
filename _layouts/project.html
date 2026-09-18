@@ -14,7 +14,7 @@ layout: default
     {%- endif -%}
 
     <div class="project-links">
-      {%- if page.live_demo -%}<a href="{{ page.live_demo }}" target="_blank" rel="noopener">라이브 데모 ↗</a>{%- endif -%}
+      {%- if page.live_demo -%}<a href="{{ page.live_demo }}" target="_blank" rel="noopener">실제 서비스 보기 ↗</a>{%- endif -%}
       {%- if page.github -%}<a href="{{ page.github }}" target="_blank" rel="noopener">GitHub ↗</a>{%- endif -%}
     </div>
   </header>
@@ -26,12 +26,12 @@ layout: default
   {%- assign related = site.posts | where_exp: "post", "post.tags contains page.tag" -%}
   {%- if related.size > 0 -%}
   <section class="related-posts">
-    <h2 class="post-list-heading">관련 글</h2>
+    <h2 class="post-list-heading">이 프로젝트에서 나온 글</h2>
     <ul class="post-list">
       {%- for post in related -%}
       <li class="post-card">
         <div class="post-card-meta">
-          <span class="cat-badge cat-{{ post.categories | first }}">{{ post.categories | first }}</span>
+          <span class="cat-badge cat-{{ post.categories | first }}">{%- assign cat = post.categories | first -%}{{ site.category_labels[cat] | default: cat }}</span>
           <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
         </div>
         <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>

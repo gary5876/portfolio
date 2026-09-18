@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Postmortem
+title: 문제 해결 기록
 permalink: /notes/postmortem/
 ---
 

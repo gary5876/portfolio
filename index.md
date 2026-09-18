@@ -1,6 +1,6 @@
 ---
 layout: home
-list_title: Latest
+list_title: 최근 글
 ---
 <section class="hero">
   <div class="hero-mark" aria-hidden="true">고</div>
@@ -13,9 +13,9 @@ list_title: Latest
     </p>
     <p class="hero-affiliation">카카오테크캠퍼스 백엔드 과정 수료, AWS Certified AI Practitioner</p>
     <div class="hero-links">
-      <a href="{{ "/projects/" | relative_url }}">Projects</a>
+      <a href="{{ "/projects/" | relative_url }}">프로젝트</a>
       <a href="https://github.com/gary5876" target="_blank" rel="noopener">GitHub</a>
-      <a href="{{ "/contact/" | relative_url }}">Contact</a>
+      <a href="{{ "/contact/" | relative_url }}">연락처</a>
     </div>
   </div>
 </section>

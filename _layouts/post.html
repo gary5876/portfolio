@@ -5,7 +5,7 @@ layout: default
 
   <header class="post-header">
     {%- if page.categories -%}
-      <span class="cat-badge cat-{{ page.categories | first }}">{{ page.categories | first }}</span>
+      <span class="cat-badge cat-{{ page.categories | first }}">{%- assign cat = page.categories | first -%}{{ site.category_labels[cat] | default: cat }}</span>
     {%- endif -%}
     <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
     <p class="post-meta">
@@ -15,7 +15,7 @@ layout: default
       </time>
       {%- assign words = page.content | strip_html | number_of_words -%}
       {%- assign read_min = words | divided_by: 200 | at_least: 1 -%}
-      <span class="read-time">{{ read_min }} min read</span>
+      <span class="read-time">읽는 데 {{ read_min }}분</span>
       {%- if page.author -%}, <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
       {%- endif -%}</p>
     {%- if page.tags.size > 0 -%}

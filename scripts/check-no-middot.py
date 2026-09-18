@@ -4,7 +4,7 @@ import glob, os, sys
 os.chdir(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 BANNED = {"·": "·", "ㆍ": "ㆍ", "•": "•", "∙": "∙", "・": "・"}
 targets = []
-for pat in ("_posts/*.md", "_projects/*.md", "*.md", "_config.yml", "_includes/*.html", "_layouts/*.html"):
+for pat in ("_posts/*.md", "_projects/*.md", "*.md", "_config.yml", "_includes/*.html", "_layouts/*.html", "assets/*.scss"):
     targets += glob.glob(pat)
 def content_lines(path):
     """펜스 코드 블록(```) 안은 원문 인용이므로 검사에서 제외한다."""

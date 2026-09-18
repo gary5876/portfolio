@@ -15,6 +15,11 @@ minima:
   social_links:
     - { platform: github, user_url: "https://github.com/gary5876" }
 
+category_labels:
+  projects: 프로젝트
+  study: 공부 노트
+  postmortem: 문제 해결 기록
+
 plugins:
   - jekyll-feed
   - jekyll-seo-tag

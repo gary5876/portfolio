@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Study
+title: 공부 노트
 permalink: /notes/study/
 ---
 
