@@ -15,6 +15,7 @@ layout: home
     <div class="hero-links">
       <a href="{{ "/projects/" | relative_url }}">프로젝트</a>
       <a href="https://github.com/gary5876" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/hi-d-357746213/" target="_blank" rel="noopener">LinkedIn</a>
       <a href="{{ "/contact/" | relative_url }}">연락처</a>
     </div>
   </div>

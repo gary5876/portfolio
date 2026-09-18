@@ -21,4 +21,4 @@ Java, Kotlin, Spring Boot, Python, FastAPI, MySQL, PostgreSQL, Redis, Docker, AW
 - 카카오테크캠퍼스 백엔드 과정 (단계별 코드리뷰 미션을 거쳐 팀 프로젝트로 이어졌고, 그 서비스를 10개월간 운영)
 
 ### 연락처
-[jerry0622@naver.com](mailto:jerry0622@naver.com), [github.com/gary5876](https://github.com/gary5876)
+[jerry0622@naver.com](mailto:jerry0622@naver.com), [github.com/gary5876](https://github.com/gary5876), [LinkedIn](https://www.linkedin.com/in/hi-d-357746213/)
