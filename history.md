@@ -33,6 +33,13 @@ permalink: /history/
     </div>
   </li>
   <li>
+    <span class="timeline-date">2026.06 – 2026.07</span>
+    <div class="timeline-body">
+      <h3><a href="{{ "/projects/diet-setlog/" | relative_url }}">diet-setlog</a> (팀 프로젝트, 디자인 2인 + 개발 2인)</h3>
+      <p>GDG on Campus 전남대 경진대회 출품작. 음식 사진으로 칼로리를 기록하는 모바일 앱. OpenAPI 계약과 설계 문서를 먼저 쓰고 Claude Code로 구현, 디자이너의 Figma는 MCP로 연결해 화면을 옮겼습니다.</p>
+    </div>
+  </li>
+  <li>
     <span class="timeline-date">2026.05 – 2026.06</span>
     <div class="timeline-body">
       <h3><a href="{{ "/projects/vgc-ai/" | relative_url }}">vgc-ai</a>, 교내 리그전 1위 / 25명 (개인 프로젝트)</h3>
