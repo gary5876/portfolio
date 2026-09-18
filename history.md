@@ -6,6 +6,13 @@ permalink: /history/
 
 <ol class="timeline">
   <li>
+    <span class="timeline-date">2026.08 – 2026.09</span>
+    <div class="timeline-body">
+      <h3><a href="{{ "/projects/agent-research/" | relative_url }}">agent-research</a> (개인 프로젝트)</h3>
+      <p>분야 전문성이 있는 AI 에이전트를 만들기 위한 조사와 실험. 조사 위임의 오류를 잡는 검증 규칙과 훅, 근거 추적 지표를 만들었습니다.</p>
+    </div>
+  </li>
+  <li>
     <span class="timeline-date">2026.08</span>
     <div class="timeline-body">
       <h3>AWS Certified AI Practitioner 취득</h3>
@@ -23,6 +30,13 @@ permalink: /history/
     <div class="timeline-body">
       <h3><a href="{{ "/projects/vgc-ai/" | relative_url }}">vgc-ai</a>, 교내 리그전 1위 / 25명 (개인 프로젝트)</h3>
       <p>25팀 라운드로빈 Championship 트랙 1위. IEEE CoG 2026을 목표로 시작했으나 대회 제출은 하지 않음.</p>
+    </div>
+  </li>
+  <li>
+    <span class="timeline-date">2026.04 – 2026.06</span>
+    <div class="timeline-body">
+      <h3><a href="{{ "/projects/capstone-dsc/" | relative_url }}">capstone-dsc</a> (팀 캡스톤, 점수 엔진과 실험 단독 담당)</h3>
+      <p>데이터 품질 점수가 모델 성능을 예측하는지 검증. 정형 435건 실험과 이미지 셀 실험.</p>
     </div>
   </li>
   <li>
