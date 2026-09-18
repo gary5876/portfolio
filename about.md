@@ -18,6 +18,7 @@ Java, Kotlin, Spring Boot, Python, FastAPI, MySQL, PostgreSQL, Redis, Docker, AW
 ### Certificates
 - AWS Certified AI Practitioner (2026.08 취득, 2029.08까지 유효)
 - AWS Cloud Practitioner Essentials (2026.08 수료)
+- Generative AI Essentials on AWS (2026.08.11 수료, AWS Training and Certification)
 - 카카오테크캠퍼스 백엔드 과정 (단계별 코드리뷰 미션 + 팀 프로젝트 → 10개월 실서비스 운영)
 
 ### Contact

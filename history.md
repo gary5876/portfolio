@@ -26,6 +26,13 @@ permalink: /history/
     </div>
   </li>
   <li>
+    <span class="timeline-date">2026.08</span>
+    <div class="timeline-body">
+      <h3>Generative AI Essentials on AWS 수료</h3>
+      <p>AWS Training and Certification, 8월 11일.</p>
+    </div>
+  </li>
+  <li>
     <span class="timeline-date">2026.05 – 2026.06</span>
     <div class="timeline-body">
       <h3><a href="{{ "/projects/vgc-ai/" | relative_url }}">vgc-ai</a>, 교내 리그전 1위 / 25명 (개인 프로젝트)</h3>
