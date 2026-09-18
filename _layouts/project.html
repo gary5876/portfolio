@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<article class="project">
+  <header class="project-header">
+    {%- if page.kind -%}<span class="kind-badge">{{ page.kind }}</span>{%- endif -%}
+    <h1 class="post-title">{{ page.title }}</h1>
+    {%- if page.role -%}<p class="project-role">{{ page.role }}</p>{%- endif -%}
+
+    {%- if page.stack -%}
+    <div class="tag-list">
+      {%- for s in page.stack -%}<span class="tag-chip stack-chip">{{ s }}</span>{%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    <div class="project-links">
+      {%- if page.live_demo -%}<a href="{{ page.live_demo }}" target="_blank" rel="noopener">라이브 데모 ↗</a>{%- endif -%}
+      {%- if page.github -%}<a href="{{ page.github }}" target="_blank" rel="noopener">GitHub ↗</a>{%- endif -%}
+    </div>
+  </header>
+
+  <div class="post-content e-content">
+    {{ content }}
+  </div>
+
+  {%- assign related = site.posts | where_exp: "post", "post.tags contains page.tag" -%}
+  {%- if related.size > 0 -%}
+  <section class="related-posts">
+    <h2 class="post-list-heading">관련 글</h2>
+    <ul class="post-list">
+      {%- for post in related -%}
+      <li class="post-card">
+        <div class="post-card-meta">
+          <span class="cat-badge cat-{{ post.categories | first }}">{{ post.categories | first }}</span>
+          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </div>
+        <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </section>
+  {%- endif -%}
+</article>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JUNSEO WORKS — Backend Factory</title>
+  <meta name="description" content="고준서 백엔드 개발자 포트폴리오 — Java/Spring Boot, Python/FastAPI, LLM API 연동, RAG, Claude Code 활용 개발 프로세스, CI/CD·모니터링. 모든 출하물은 검증 게이트를 통과합니다." />
+  <meta property="og:title" content="JUNSEO WORKS — 고준서 백엔드 공장" />
+  <meta property="og:description" content="Java/Spring 팀 서비스 운영, Python/FastAPI 솔로 출하, Claude Code를 검증 게이트와 함께 쓰는 개발. 테스트 570+, 실서비스 9개월, LLM API 3사 연동." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#top" class="nav-sign">
+      <span class="nav-sign-kr">준서공업</span>
+      <span class="nav-sign-en">JUNSEO WORKS</span>
+    </a>
+    <div class="nav-links">
+      <a href="#line" data-i18n="nav_line">생산 라인</a>
+      <a href="#machinery" data-i18n="nav_machinery">설비</a>
+      <a href="#qc" data-i18n="nav_qc">품질 인증</a>
+      <a href="#operator" data-i18n="nav_operator">작업자</a>
+      <button id="lang-toggle" class="lang-switch" aria-label="Switch language">
+        <span class="lang-switch-label">KO</span><span class="lang-switch-knob"></span><span class="lang-switch-label">EN</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="hazard" aria-hidden="true"></div>
+
+  <header class="hero" id="top">
+    <div class="hero-text">
+      <p class="plate-kicker" data-i18n="hero_kicker">가동 중 · 테스트 570+ · 사고는 포스트모템으로 남깁니다</p>
+      <h1 class="hero-title">
+        <span class="hero-title-kr" data-i18n="hero_title">고준서 백엔드 공장</span>
+        <span class="hero-title-en">JUNSEO WORKS — BACKEND FACTORY</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero_sub">
+        Java·Spring으로 팀 서비스를 만들어 운영했고, Python·FastAPI로 혼자 만든 서비스를 출하했습니다.
+        요즘은 코딩 에이전트를 생산 라인에 투입하는 실험을 합니다.
+        이 공장의 원칙은 하나 — 모든 출하물은 검증 게이트를 통과해야 합니다.
+        계층별 테스트 570여 개, n=2000 벤치마크 신뢰구간, 그리고 사람의 코드리뷰.
+      </p>
+      <div class="hero-actions">
+        <a class="ind-btn ind-btn-solid" href="#line" data-i18n="hero_cta">생산 라인 보기 ↓</a>
+        <a class="ind-btn" href="https://github.com/gary5876" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="ind-btn" href="mailto:jerry0622@naver.com" data-i18n="hero_contact">연락하기 ✉</a>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <svg viewBox="0 0 320 240" class="factory-svg">
+        <!-- smoke -->
+        <circle class="smoke s1" cx="248" cy="70" r="9" />
+        <circle class="smoke s2" cx="256" cy="58" r="12" />
+        <circle class="smoke s3" cx="246" cy="44" r="15" />
+        <!-- chimney -->
+        <rect x="238" y="76" width="22" height="70" fill="#3a352e" />
+        <rect x="234" y="70" width="30" height="10" fill="#1f1d1a" />
+        <!-- sawtooth roof body -->
+        <path d="M40 146 L40 118 L95 96 L95 118 L150 96 L150 118 L205 96 L205 146 Z" fill="#3a352e" />
+        <rect x="40" y="146" width="240" height="60" fill="#4a443b" />
+        <!-- windows -->
+        <rect x="56" y="158" width="28" height="22" fill="#f5b301" />
+        <rect x="96" y="158" width="28" height="22" fill="#f5b301" />
+        <rect x="136" y="158" width="28" height="22" fill="#2b2925" />
+        <rect x="176" y="158" width="28" height="22" fill="#f5b301" />
+        <!-- door -->
+        <rect x="222" y="162" width="36" height="44" fill="#2b2925" />
+        <rect x="222" y="162" width="36" height="6" fill="#e8541e" />
+        <!-- ground -->
+        <rect x="20" y="206" width="284" height="8" fill="#1f1d1a" />
+      </svg>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===== Production line (projects on a conveyor belt) ===== -->
+    <section id="line" class="section">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="line_title">생산 라인</h2>
+        <p class="section-note" data-i18n="line_note">제품마다 전용 라인이 있습니다 — 벨트 위 공정마다 어떤 기술을 왜 썼는지, 끝에는 무엇이 출하됐는지 적혀 있습니다</p>
+      </div>
+
+      <div id="lines"><!-- production lines injected by script.js --></div>
+
+      <h3 class="also-title" data-i18n="also_title">소형 출하물 · ALSO SHIPPED</h3>
+      <div class="mini-grid" id="minis"><!-- injected by script.js --></div>
+    </section>
+
+    <!-- ===== Machinery (skills) ===== -->
+    <section id="machinery" class="section">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="machinery_title">설비 현황</h2>
+        <p class="section-note" data-i18n="machinery_note">3개 유닛 상시 가동</p>
+      </div>
+      <div class="unit-grid">
+        <article class="unit">
+          <header class="unit-head">
+            <span class="unit-no">UNIT 01</span>
+            <span class="unit-name">BACKEND</span>
+            <span class="led" title="RUNNING"></span>
+          </header>
+          <p class="unit-body" data-i18n="unit_be">
+            도메인 API 설계와 DB 모델링부터 비동기 이벤트 처리, 쿼리 최적화(join fetch·프로젝션),
+            계층별 테스트까지. Spring Boot 팀 프로젝트에서 290개, FastAPI 개인 프로젝트에서
+            280개의 테스트를 쌓으며 만들었습니다.
+          </p>
+          <ul class="spec-plate">
+            <li>Java</li><li>Kotlin</li><li>Spring Boot</li><li>Python</li><li>FastAPI</li>
+            <li>MySQL</li><li>PostgreSQL</li><li>Redis</li>
+          </ul>
+        </article>
+        <article class="unit">
+          <header class="unit-head">
+            <span class="unit-no">UNIT 02</span>
+            <span class="unit-name">DEVOPS</span>
+            <span class="led" title="RUNNING"></span>
+          </header>
+          <p class="unit-body" data-i18n="unit_do">
+            Prometheus·Grafana·Loki 모니터링 스택 구축에 참여하고 비즈니스 지표를 Discord 알림까지
+            연결했습니다. GitHub Actions CI/CD로 AWS(EC2·ECR·SSM, OIDC 키리스)와
+            GCP(Cloud Run·Cloud SQL)에 배포한 경험이 있습니다.
+            아직 못 해본 것 — Terraform 같은 IaC, 무중단 배포 전략. 다음 목표입니다.
+          </p>
+          <div class="pipe-diagram mono" aria-label="deploy pipeline">
+            <span>push → GH Actions</span>
+            <span>├ test · security</span>
+            <span>├ build → ECR <em>(OIDC, no keys)</em></span>
+            <span>└ deploy → EC2 <em>(env via SSM)</em></span>
+          </div>
+          <ul class="spec-plate">
+            <li>Docker</li><li>GitHub Actions</li><li>AWS</li><li>GCP</li>
+            <li>Prometheus</li><li>Grafana</li><li>Loki</li>
+          </ul>
+        </article>
+        <article class="unit">
+          <header class="unit-head">
+            <span class="unit-no">UNIT 03</span>
+            <span class="unit-name">LLM</span>
+            <span class="led" title="RUNNING"></span>
+          </header>
+          <p class="unit-body" data-i18n="unit_llm">
+            외부 LLM API 3사를 연동하며 서킷 브레이커·지수 백오프·해시 캐싱·응답 검증(중복 제거,
+            환각 탐지)을 직접 구현했습니다. 코딩 에이전트의 제안을 n=2000 벤치마크의 95% 신뢰구간으로
+            검증하는 실험 파이프라인도 운영합니다.
+          </p>
+          <ul class="spec-plate">
+            <li>Claude API</li><li>OpenAI API</li><li>RAG</li><li>Prompt Design</li>
+            <li>Coding Agents</li><li>Eval Gates</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== QC certificates ===== -->
+    <section id="qc" class="section">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="qc_title">품질 인증</h2>
+        <p class="section-note" data-i18n="qc_note">외부 기관 검증 완료</p>
+      </div>
+      <div class="cert-grid">
+        <article class="cert-tag">
+          <span class="cert-hole" aria-hidden="true"></span>
+          <span class="cert-stamp" data-i18n="stamp_certified">인증</span>
+          <h3>AWS Certified<br />AI Practitioner</h3>
+          <p data-i18n="cert_aws_ai">2026.08 취득 · 2029.08까지 유효</p>
+        </article>
+        <article class="cert-tag">
+          <span class="cert-hole" aria-hidden="true"></span>
+          <span class="cert-stamp" data-i18n="stamp_completed">수료</span>
+          <h3>AWS Cloud Practitioner<br />Essentials</h3>
+          <p data-i18n="cert_aws_cp">AWS 공식 교육 수료 · 2026.08</p>
+        </article>
+        <article class="cert-tag">
+          <span class="cert-hole" aria-hidden="true"></span>
+          <span class="cert-stamp" data-i18n="stamp_completed2">수료</span>
+          <h3 data-i18n="cert_ktc_t">카카오테크캠퍼스<br />백엔드 과정</h3>
+          <p data-i18n="cert_ktc">단계별 코드리뷰 미션 + 9개월 팀 프로젝트</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== Operator (about) ===== -->
+    <section id="operator" class="section">
+      <div class="section-head">
+        <h2 class="section-title" data-i18n="op_title">작업자 정보</h2>
+        <p class="section-note" data-i18n="op_note">공장장 겸 유일한 작업자</p>
+      </div>
+      <div class="badge-card">
+        <div class="badge-photo" aria-hidden="true">
+          <span>고</span>
+        </div>
+        <div class="badge-info">
+          <h3 class="badge-name">고준서 <span class="badge-name-en">Junseo Go</span></h3>
+          <p class="badge-role mono" data-i18n="op_role">BACKEND ENGINEER · 인공지능학부</p>
+          <p class="badge-bio" data-i18n="op_bio">
+            카카오테크캠퍼스 백엔드 과정을 수료했습니다. spring-gift 미션을 단계별 코드리뷰로 진행했고
+            그 과정이 Team18_BE 팀 프로젝트로 이어졌습니다. 요즘 관심사는 "AI를 믿는 개발"이 아니라
+            "AI를 검증하는 개발" — 코딩 에이전트의 결과물이 테스트·벤치마크·통계 게이트를 통과했을 때만
+            받아들이는 워크플로를 만드는 것입니다.
+          </p>
+          <ul class="spec-plate">
+            <li>Java</li><li>Kotlin</li><li>Spring Boot</li><li>Python</li><li>FastAPI</li>
+            <li>MySQL</li><li>PostgreSQL</li><li>Redis</li><li>Docker</li><li>AWS</li><li>GCP</li>
+          </ul>
+          <p class="badge-contact mono">
+            <span data-i18n="op_contact">채용 관련 연락</span> →
+            <a href="mailto:jerry0622@naver.com">jerry0622@naver.com</a> ·
+            <a href="https://github.com/gary5876" target="_blank" rel="noopener">github.com/gary5876</a>
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="hazard" aria-hidden="true"></div>
+
+  <footer class="footer">
+    <p class="mono">© 2026 JUNSEO WORKS · <a href="https://github.com/gary5876" target="_blank" rel="noopener">github.com/gary5876</a> · <a href="mailto:jerry0622@naver.com">jerry0622@naver.com</a></p>
+    <p class="mono" data-i18n="footer_note">본 공장은 빌드 도구 없이 수작업(HTML·CSS·JS)으로 지어졌습니다.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
