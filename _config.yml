@@ -2,9 +2,9 @@ title: 고준서
 lang: ko
 email: jerry0622@naver.com
 description: >-
-  백엔드 개발자. AI를 도구로 활용해 검증 가능한 결과를 냅니다.
-  Java/Spring, Python/FastAPI로 서비스를 만들고, 코딩 에이전트의 산출물을
-  테스트, 벤치마크, 통계 게이트로 검증하는 워크플로를 기록합니다.
+  백엔드 개발자 고준서. 카카오테크캠퍼스 백엔드 과정 수료, 대학 동아리 지원 서비스 동아리움을
+  팀에서 10개월 운영하며 통계, 공지, 이메일 알림 전담. 개인 프로젝트로 LLM 학습 서비스와
+  게임 AI. 코딩 에이전트가 만든 코드를 테스트와 통계로 검증하며 일합니다.
 baseurl: "/portfolio"
 url: "https://gary5876.github.io"
 github_username: gary5876
