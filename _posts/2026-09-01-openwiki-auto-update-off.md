@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ci가 문서를 자동으로 갱신해주는 거 맞지?"
+title: "OpenWiki 자동 갱신을 18분 만에 끈 이유: LLM 없는 '뒤처진 커밋 수' 추적"
 date: 2026-09-01 09:00:00 +0900
 categories: [study]
 tags: [team18-be, ax, documentation, github-actions, coding-agents]

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "사고이력이든 뭐든 잊고 진짜 시스템설계 입장에서 봐봐"
+title: "통계 캐시: \"스케줄러 필수\"라고 써놓고 cache-aside로 뒤집은 이유"
 date: 2026-08-18 09:00:00 +0900
 categories: [study]
 tags: [team18-be, redis, cache, spring-boot]
