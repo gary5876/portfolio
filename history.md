@@ -78,7 +78,7 @@ permalink: /history/
     <span class="timeline-date">2025.04 – 2025.11</span>
     <div class="timeline-body">
       <h3>카카오테크캠퍼스 백엔드 과정 수료</h3>
-      <p>spring-gift 미션을 단계별 코드리뷰로 진행 → Team18_BE 팀 프로젝트로 이어짐.</p>
+      <p>spring-gift 미션을 단계별 코드리뷰로 진행했고, 그 과정이 Team18_BE 팀 프로젝트로 이어졌습니다.</p>
     </div>
   </li>
 </ol>

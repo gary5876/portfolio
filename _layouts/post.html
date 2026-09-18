@@ -9,7 +9,7 @@ layout: default
 
   <header class="post-header">
     {%- if proj -%}
-    <p class="post-project">이 글이 나온 프로젝트: <a href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title }}</a>{% if proj.kind %} <span class="post-project-kind">{{ proj.kind }}</span>{% endif %}</p>
+    <p class="post-project">관련 프로젝트: <a href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title }}</a>{% if proj.kind %} <span class="post-project-kind">{{ proj.kind }}</span>{% endif %}</p>
     {%- endif -%}
     {%- if page.categories -%}
       {%- assign cat = page.categories | first -%}<span class="cat-badge cat-{{ cat }}">{{ site.category_labels[cat] | default: cat }}</span>
@@ -38,7 +38,7 @@ layout: default
       {%- if s.date > page.date and next_post == nil -%}{%- assign next_post = s -%}{%- endif -%}
     {%- endfor -%}
     {%- if next_post -%}
-    <p>같은 프로젝트의 다음 글: <a href="{{ next_post.url | relative_url }}">{{ next_post.title }}</a></p>
+    <p>다음 글: <a href="{{ next_post.url | relative_url }}">{{ next_post.title }}</a></p>
     {%- endif -%}
     <p>
       <a href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title }} 프로젝트로 돌아가기</a>

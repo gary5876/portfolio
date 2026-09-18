@@ -5,7 +5,6 @@ layout: default
   <header class="project-header">
     {%- if page.kind -%}<span class="kind-badge">{{ page.kind }}</span>{%- endif -%}
     <h1 class="post-title">{{ page.display_name | default: page.title }}</h1>
-    {%- if page.display_name -%}<p class="project-repo">저장소 이름: {{ page.title }}</p>{%- endif -%}
 
     <dl class="project-facts">
       {%- if page.period -%}<dt>기간</dt><dd>{{ page.period }}</dd>{%- endif -%}
@@ -45,7 +44,7 @@ layout: default
   {%- assign related = site.posts | where_exp: "post", "post.tags contains page.tag" -%}
   {%- if related.size > 0 -%}
   <section class="related-posts">
-    <h2 class="post-list-heading">이 프로젝트에서 나온 글 전체 ({{ related.size }}편)</h2>
+    <h2 class="post-list-heading">이 프로젝트 관련 글 ({{ related.size }}편)</h2>
     {%- include post-list.html posts=related -%}
   </section>
   {%- endif -%}
