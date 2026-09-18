@@ -32,7 +32,7 @@ layout: default
       <li class="post-card">
         <div class="post-card-meta">
           <span class="cat-badge cat-{{ post.categories | first }}">{%- assign cat = post.categories | first -%}{{ site.category_labels[cat] | default: cat }}</span>
-          <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+          <span class="post-meta">{{ post.date | date: "%Y년 %-m월 %-d일" }}</span>
         </div>
         <h3><a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
       </li>

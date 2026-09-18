@@ -12,6 +12,7 @@ github_username: gary5876
 theme: minima
 minima:
   skin: classic
+  date_format: "%Y년 %-m월 %-d일"
   social_links:
     - { platform: github, user_url: "https://github.com/gary5876" }
 

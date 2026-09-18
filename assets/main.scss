@@ -475,7 +475,7 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 
   .site-header, .site-footer { background: $dark-bg; border-color: $dark-border; }
 
-  .site-title, .post-title, h1, h2, h3, h4, .page-heading { color: $dark-text; }
+  .site-title, .site-title:visited, .post-title, h1, h2, h3, h4, .page-heading { color: $dark-text; }
   .site-title:hover { color: $dark-accent; }
 
   .site-nav .page-link { color: $dark-text; }

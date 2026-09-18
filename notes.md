@@ -11,7 +11,7 @@ permalink: /notes/
   {% for post in notes %}
   <li>
     <span class="cat-badge cat-{{ post.categories | first }}">{%- assign cat = post.categories | first -%}{{ site.category_labels[cat] | default: cat }}</span>
-    <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <span class="post-meta">{{ post.date | date: "%Y년 %-m월 %-d일" }}</span>
     <h3>
       <a class="post-link" href="{{ post.url | relative_url }}">
         {{ post.title | escape }}
