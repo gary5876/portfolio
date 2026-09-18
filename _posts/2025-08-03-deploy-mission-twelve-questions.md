@@ -47,7 +47,7 @@ CORS 설정 파일에는 세 개가 달렸습니다. 허용 주소가 `localhost
 그날 밤과 다음 날 새벽에 걸쳐 스크립트를 다시 썼습니다. 저녁 5시 반에 파일로 분리하고([f104968](https://github.com/gary5876/spring-gift-order/commit/f104968)), 자정 넘어 빌드까지 넣었어요([c6e9dcd](https://github.com/gary5876/spring-gift-order/commit/c6e9dcd), [18a91ed](https://github.com/gary5876/spring-gift-order/commit/18a91ed)). 최종 `deploy.sh`는 실행 중인 프로세스를 찾아 종료하고, 저장소를 받아 오고, 빌드하고, 새로 띄우는 네 단계예요.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A["pgrep로 실행 중인 jar 찾기"] --> B{"있나?"}
     B -->|있음| C["kill -15, 5초 대기"]
     B -->|없음| D["없다고 출력"]

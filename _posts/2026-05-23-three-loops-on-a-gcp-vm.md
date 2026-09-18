@@ -14,7 +14,7 @@ summary: "코딩 에이전트가 제안하고 통계 게이트가 판정하는 �
 역할을 셋으로 나눴습니다. proposer는 새 전략을 만들어 PR을 엽니다. reviewer는 벤치 결과를 읽고 기본값을 바꾸자는 PR을 엽니다. PR handler는 열린 PR을 머지하거나 닫습니다. 어느 하나도 자기 PR을 자기가 머지하지 못합니다. 그 밑에서 bench 루프가 매 사이클 모든 전략을 맞붙여 CSV에 행을 쌓고, 이 CSV가 reviewer와 proposer의 유일한 입력입니다.
 
 ```mermaid
-flowchart LR
+flowchart TD
     P[proposer<br/>1시간마다] -->|새 전략 PR| H[PR handler<br/>1분마다]
     H -->|CI 통과면 머지| B[bench 루프<br/>1분마다 CSV 적재]
     B -->|풀링 결과| R[reviewer<br/>10분마다]

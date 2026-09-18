@@ -75,7 +75,7 @@ if (full.totalApplicants() < properties.minTotalApplicants()) {
 ```
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[지원자 수 세기] --> B{3명 미만?}
     B -->|예| M["masked: true, 결과 없음"]
     B -->|아니오| C[성별, 학부, 학번, 일자별 분포 전부 공개]

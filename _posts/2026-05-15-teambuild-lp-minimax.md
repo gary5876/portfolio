@@ -14,9 +14,9 @@ summary: "상대를 모르는 상태에서 팀을 고르는 문제를 선형계�
 로스터는 매 챔피언십마다 무작위로 30종이 주어집니다. 참가자는 그중 `max_team_size`인 4종을 골라 팀을 만들고, 배틀마다 그 팀에서 2종을 선출해 싸웁니다. 팀빌딩 시점에 쓸 수 있는 정보는 로스터 자체와, 에포크가 진행되면서 쌓이는 상대들의 사용률(meta)뿐이고, 첫 에포크에는 그 meta도 비어 있습니다.
 
 ```mermaid
-flowchart LR
+flowchart TD
     R[로스터 30종] --> M[매치업 표 M<br/>쌍당 10판 시뮬]
-    M --> LP[LP: max v<br/>v ≤ pᵀM[:,j] for all j]
+    M --> LP["LP: max v<br/>v ≤ pᵀM[:,j] for all j"]
     LP --> P[혼합분포 p]
     P --> S[p 상위 4종<br/>결정적 선택]
     S --> T[팀 4종]

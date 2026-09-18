@@ -28,7 +28,7 @@ def wilson_ci_95(wins: int, n: int) -> tuple[float, float]:
 흐름은 이렇습니다. 에이전트가 `TASKS.md`의 과제를 집어 정책을 구현하고 벤치(자가 대전)를 돌립니다. 세 조건을 통과하면 PR을 열고, 못 넘으면 PR을 열지 않은 채 그 항목을 `[blocked]`로 바꾸면서 수치와 진단을 적습니다. 기각 기록이 남은 이유가 이거예요.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[에이전트가 정책 제안] --> B[구현 + n판 자가대전]
     B --> C{win_rate > 0.5<br/>ci95_low > 0.5<br/>avg_battle_ms < 5000}
     C -- 통과 --> D[PR 오픈, 사람이 검토 후 머지]

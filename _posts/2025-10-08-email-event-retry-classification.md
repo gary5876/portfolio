@@ -63,7 +63,7 @@ if (basic != null) {
 `RetryableEmailException`에는 에러 코드가 없습니다. 소스 주석에 "이 에러는 @Retry 에서 사용하는거라 에러코드가 없습니다. 프론트에 넘겨주지 않아요"라고 적어 뒀어요. 재시도는 서버 안에서 끝나는 일이고 사용자에게 보여줄 상태가 아니니까요. `EmailSendFailedException`은 반대로 같은 분류기의 `toErrorCode`로 수신자 오류, 정책 거부, 인증 실패, 타임아웃 같은 코드를 받습니다.
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[지원서 제출 요청] --> B[DB 커밋]
     B --> C[응답 200]
     B -- AFTER_COMMIT 이벤트 --> D["@Async 리스너"]

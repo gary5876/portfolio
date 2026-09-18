@@ -21,7 +21,12 @@
       div.textContent = code.textContent;
       pre.replaceWith(div);
     });
-    mermaid.run({ querySelector: ".mermaid" });
+    mermaid.run({ querySelector: ".mermaid" }).then(() => {
+      document.querySelectorAll(".mermaid > svg").forEach((svg) => {
+        const vb = svg.viewBox && svg.viewBox.baseVal;
+        if (vb && vb.width) svg.style.minWidth = Math.round(vb.width * 0.8) + "px";
+      });
+    });
   </script>
   {%- feed_meta -%}
   {%- if jekyll.environment == 'production' and site.google_analytics -%}
