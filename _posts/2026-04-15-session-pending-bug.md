@@ -2,7 +2,7 @@
 layout: post
 title: "세션이 영원히 '생성 중'인 이유: 두 저장소, 삼켜진 예외, 용의자 여덟"
 date: 2026-04-15 09:00:00 +0900
-categories: [postmortem]
+categories: [troubleshooting]
 tags: [study-helper, fastapi, postgres, redis]
 ---
 

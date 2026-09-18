@@ -2,7 +2,7 @@
 layout: post
 title: "DSC가 노이즈를 '품질 양호'로 읽었다: 데이터 품질 점수의 사각지대와 signal_integrity"
 date: 2026-06-03 09:00:00 +0900
-categories: [postmortem]
+categories: [troubleshooting]
 tags: [capstone-dsc, ml, experiment-design, data-quality]
 ---
 

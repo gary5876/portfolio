@@ -2,7 +2,7 @@
 layout: post
 title: "n=200에서 이긴 정책이 n=500에서 떨어졌다: Wilson 신뢰구간 게이트가 걸러낸 16건"
 date: 2026-05-12 09:00:00 +0900
-categories: [postmortem]
+categories: [troubleshooting]
 tags: [vgc-ai, statistics, eval-gates, coding-agents]
 ---
 

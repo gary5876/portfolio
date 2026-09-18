@@ -2,7 +2,7 @@
 layout: post
 title: "@Async 리스너에서 터진 LazyInitializationException: 이메일이 조용히 안 나가던 이유"
 date: 2025-10-16 09:00:00 +0900
-categories: [postmortem]
+categories: [troubleshooting]
 tags: [team18-be, spring-boot, jpa, async, email]
 ---
 
