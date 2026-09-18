@@ -448,6 +448,25 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 }
 
 // ---------------------------------------------------------------
+// Figures (mermaid + captions)
+// ---------------------------------------------------------------
+.mermaid {
+  margin: $spacing-unit * 0.75 0 8px;
+  text-align: center;
+  svg { max-width: 100%; height: auto; }
+}
+
+.post-content p > em:only-child,
+.figcap {
+  display: block;
+  text-align: center;
+  font-family: $mono-font-family;
+  font-size: $small-font-size;
+  color: $grey-color;
+  margin-bottom: $spacing-unit * 0.75;
+}
+
+// ---------------------------------------------------------------
 // Footer
 // ---------------------------------------------------------------
 .site-footer { border-top: 1px solid $grey-color-light; }
