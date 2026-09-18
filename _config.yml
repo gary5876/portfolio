@@ -8,6 +8,7 @@ description: >-
 baseurl: "/portfolio"
 url: "https://gary5876.github.io"
 github_username: gary5876
+linkedin_username: hi-d-357746213
 
 theme: minima
 minima:
