@@ -163,6 +163,10 @@ a:hover { text-decoration: underline; }
 }
 .kind-badge { margin-bottom: 6px; }
 .stack-chip { background: $surface; border: none; }
+a.tag-chip { color: $grey-color-dark; &:hover { background: $grey-color-light; text-decoration: none; color: $text-color; } }
+.kind-rest { font-size: 13px; color: $grey-color; margin: 0 8px 4px 0; }
+.tag-index .tag-chip { font-size: 14px; padding: 4px 10px; margin: 0 6px 8px 0; }
+.tag-count { color: $grey-color; font-size: 12px; margin-left: 2px; }
 
 .read-time::before { content: ", "; }
 .post-meta { font-size: $small-font-size; color: $grey-color; }
@@ -348,6 +352,8 @@ ul.post-list li.post-card h3 { margin: 4px 0 6px; font-size: 1.15rem; }
   .project-facts dt { color: $dark-grey; }
 
   .tag-chip, .kind-badge, .stack-chip { background: $dark-surface; color: $dark-grey; }
+  a.tag-chip:hover { background: $dark-border; color: $dark-text; }
+  .kind-rest, .tag-count { color: $dark-grey; }
 
   .post-content blockquote, .page-content blockquote { border-color: $dark-border; color: $dark-grey; }
   .post-content code, .page-content code { background: $dark-surface; color: $dark-text; }

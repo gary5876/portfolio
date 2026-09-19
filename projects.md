@@ -4,21 +4,18 @@ title: 프로젝트
 permalink: /projects/
 ---
 
+태그를 누르면 같은 기술을 쓴 프로젝트를 모아 볼 수 있습니다. [태그 전체 보기]({{ "/tags/" | relative_url }})
+
 {%- assign sorted_projects = site.projects | sort: "order" -%}
 <ul class="post-list">
   {%- for proj in sorted_projects -%}
   <li class="post-card project-card">
     <a class="card-cover" href="{{ proj.url | relative_url }}" aria-label="{{ proj.display_name | default: proj.title | escape }}"></a>
-    {%- if proj.kind -%}<span class="kind-badge">{{ proj.kind }}</span>{%- endif -%}
+    {%- include project-tags.html project=proj stack=true -%}
     <h3><a class="post-link" href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title | escape }}</a></h3>
     {%- if proj.period -%}<p class="post-meta">{{ proj.period }}</p>{%- endif -%}
     {%- if proj.role -%}<p class="project-summary">{{ proj.role }}</p>{%- endif -%}
     {%- if proj.result -%}<p class="project-result">{{ proj.result }}</p>{%- endif -%}
-    {%- if proj.stack -%}
-    <div class="tag-list">
-      {%- for s in proj.stack -%}<span class="tag-chip stack-chip">{{ s }}</span>{%- endfor -%}
-    </div>
-    {%- endif -%}
   </li>
   {%- endfor -%}
 </ul>

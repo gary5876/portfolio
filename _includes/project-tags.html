@@ -1,0 +1,18 @@
+{%- comment -%}
+프로젝트의 팀/개인 태그와 기술 스택 태그를 링크로 그린다.
+include.project: 프로젝트 문서, include.stack: true면 스택 태그까지
+{%- endcomment -%}
+{%- assign kind_name = "개인 프로젝트" -%}{%- assign kind_slug = "solo" -%}
+{%- if include.project.kind contains "팀" -%}{%- assign kind_name = "팀 프로젝트" -%}{%- assign kind_slug = "team" -%}{%- endif -%}
+{%- assign kind_rest = include.project.kind | remove_first: kind_name | strip | remove_first: "," | strip -%}
+<div class="tag-list">
+  <a class="tag-chip kind-chip" href="{{ "/tags/" | append: kind_slug | append: "/" | relative_url }}">{{ kind_name }}</a>
+  {%- if kind_rest != "" -%}<span class="kind-rest">{{ kind_rest }}</span>{%- endif -%}
+  {%- if include.stack and include.project.stack -%}
+    {%- for s in include.project.stack -%}
+      {%- assign base = s | split: " (" | first | strip -%}
+      {%- assign slug = base | slugify -%}
+      <a class="tag-chip stack-chip" href="{{ "/tags/" | append: slug | append: "/" | relative_url }}">{{ s }}</a>
+    {%- endfor -%}
+  {%- endif -%}
+</div>

@@ -11,7 +11,7 @@ layout: default
     {%- for proj in sorted_projects -%}
     <li class="post-card project-card">
       <a class="card-cover" href="{{ proj.url | relative_url }}" aria-label="{{ proj.display_name | default: proj.title | escape }}"></a>
-      {%- if proj.kind -%}<span class="kind-badge">{{ proj.kind }}</span>{%- endif -%}
+      {%- include project-tags.html project=proj stack=false -%}
       <h3><a class="post-link" href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title | escape }}</a></h3>
       {%- if proj.role -%}<p class="project-summary">{{ proj.role }}</p>{%- endif -%}
       {%- if proj.result -%}<p class="project-result">{{ proj.result }}</p>{%- endif -%}
