@@ -4,7 +4,7 @@ title: "RandomForest F1 0.99는 학습이 아니라 누수였다: split-first로
 date: 2026-04-13 09:00:00 +0900
 categories: [troubleshooting]
 tags: [capstone-dsc, ml, experiment-design]
-summary: "오염된 파일을 나누던 파이프라인이 test에 train 복제본을 흘리고 있어서, 먼저 나누고 train만 오염시키는 구조로 바꾼 기록"
+description: "오염된 파일을 나누던 파이프라인이 test에 train 복제본을 흘리고 있어서, 먼저 나누고 train만 오염시키는 구조로 바꾼 기록"
 ---
 
 안녕하세요, 고준서입니다. 캡스톤 팀에서 데이터 품질 점수 엔진과 실험 파이프라인을 맡았습니다. 짧은 글입니다. 4월 13일 아침에 고친 문제인데, 실험 결과 전체를 무효로 만들 수 있었던 거라 따로 남깁니다.

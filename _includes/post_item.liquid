@@ -1,0 +1,25 @@
+{%- comment -%}
+글 목록 한 줄. include.post 를 받는다.
+{%- endcomment -%}
+{%- assign post = include.post -%}
+{%- assign read_time = post.content | strip_html | number_of_words | divided_by: 180 | plus: 1 -%}
+{%- assign cat = post.categories | first -%}
+<li>
+  <h3>
+    <a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>
+  </h3>
+  {%- if post.description -%}<p>{{ post.description }}</p>{%- endif -%}
+  <p class="post-meta">
+    {{ post.date | date: '%Y년 %-m월 %-d일' }}, 읽는 데 {{ read_time }}분
+  </p>
+  <p class="post-tags">
+    {%- if cat -%}
+      <a href="{{ cat | slugify | prepend: '/blog/category/' | relative_url }}"><i class="fa-solid fa-tag fa-sm"></i> {{ site.category_labels[cat] | default: cat }}</a>
+    {%- endif -%}
+    {%- assign proj = nil -%}
+    {%- for p in site.projects -%}{%- if post.tags contains p.tag -%}{%- assign proj = p -%}{%- endif -%}{%- endfor -%}
+    {%- if proj -%}
+      &nbsp; <a href="{{ proj.url | relative_url }}"><i class="fa-solid fa-folder fa-sm"></i> {{ proj.display_name | default: proj.title }}</a>
+    {%- endif -%}
+  </p>
+</li>

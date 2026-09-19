@@ -2,9 +2,8 @@
 layout: page
 title: 태그
 permalink: /tags/
+description: 태그를 누르면 그 기술을 쓴 프로젝트와 관련 글이 모입니다.
 ---
-
-태그를 누르면 그 기술을 쓴 프로젝트와 관련 글이 모입니다.
 
 <div class="tag-list tag-index">
 {%- for t in site.data.tag_index -%}

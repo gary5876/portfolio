@@ -1,0 +1,26 @@
+<div class="col">
+  <a href="{{ project.url | relative_url }}">
+    <div class="card h-100 hoverable">
+      <div class="card-body">
+        {%- assign kind_name = "개인 프로젝트" -%}
+        {%- if project.kind contains "팀" -%}{%- assign kind_name = "팀 프로젝트" -%}{%- endif -%}
+        <p class="card-kind">{{ kind_name }}{% if project.period %}, {{ project.period | split: " (" | first }}{% endif %}</p>
+        <h2 class="card-title">{{ project.display_name | default: project.title }}</h2>
+        <p class="card-text">{{ project.summary | default: project.description }}</p>
+        {%- if project.role -%}<p class="card-text card-role">{{ project.role | replace: "내 담당: ", "" }}</p>{%- endif -%}
+        {%- if project.stack -%}
+        <p class="card-stack">{{ project.stack | join: ", " }}</p>
+        {%- endif -%}
+        <div class="row ml-1 mr-1 p-0">
+          {% if project.github %}
+            <div class="github-icon">
+              <div class="icon" data-toggle="tooltip" title="코드 저장소">
+                <i class="fa-brands fa-github gh-icon"></i>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

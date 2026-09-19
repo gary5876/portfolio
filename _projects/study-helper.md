@@ -8,10 +8,12 @@ kind: "개인 프로젝트"
 role: "설계 → 구현 → CI → 배포 전 과정 단독"
 github: https://github.com/gary5876/study-helper-backend
 order: 2
+importance: 2
+description: "혼자 만든 풀스택 3레포, LLM 3사 연동 API"
 display_name: "study-helper (PDF로 학습 노트와 퀴즈를 만드는 서비스)"
 period: "2026.03 ~ 2026.06"
 result: "백엔드, 웹, 모바일 3개 저장소를 혼자 만들고 GCP Cloud Run에 배포. 지금은 운영 중단"
-featured: ["/2026/04/15/session-pending-bug/", "/2026/03/31/three-providers-three-circuit-breakers/"]
+featured: ["/blog/2026/04/15/session-pending-bug/", "/blog/2026/03/31/three-providers-three-circuit-breakers/"]
 ---
 
 PDF를 올리면 LLM으로 학습 노트와 퀴즈를 만들어주는 API. 외부 LLM API 3사(Claude, GPT, TimelyGPT)를 연동했고,

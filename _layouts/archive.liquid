@@ -1,0 +1,31 @@
+---
+layout: default
+---
+<div class="post">
+  <header class="post-header">
+    {% if page.type == 'categories' %}
+      <h1 class="post-title"><i class="fa-solid fa-tag fa-sm"></i> {{ site.category_labels[page.title] | default: page.title }}</h1>
+      <p class="post-description">
+        {%- if page.title == 'troubleshooting' -%}실제로 겪은 장애와 버그를 어떻게 찾고 고쳤는지 남긴 글입니다.
+        {%- elsif page.title == 'decisions' -%}왜 이렇게 만들기로 했는지를 남긴 글입니다. 대안이 무엇이었고 무엇을 포기했는지까지 적었습니다.
+        {%- elsif page.title == 'study' -%}읽고 배운 것을 정리한 글입니다.
+        {%- else -%}이 분류의 글 {{ page.documents.size }}편
+        {%- endif -%}
+      </p>
+    {% elsif page.type == 'year' %}
+      <h1 class="post-title"><i class="fa-solid fa-calendar fa-sm"></i> {{ page.date | date: '%Y' }}년</h1>
+      <p class="post-description">{{ page.date | date: '%Y' }}년에 쓴 글 {{ page.documents.size }}편</p>
+    {% elsif page.type == 'tags' %}
+      <h1 class="post-title"><i class="fa-solid fa-hashtag fa-sm"></i> {{ page.title }}</h1>
+      <p class="post-description">이 태그가 붙은 글 {{ page.documents.size }}편</p>
+    {% endif %}
+  </header>
+
+  <article class="archive">
+    <ul class="post-list">
+      {% for document in page.documents %}
+        {% include post_item.liquid post=document %}
+      {% endfor %}
+    </ul>
+  </article>
+</div>

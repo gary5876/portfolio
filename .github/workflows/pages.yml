@@ -29,6 +29,8 @@ jobs:
         run: bundle exec jekyll build --baseurl "/portfolio"
         env:
           JEKYLL_ENV: production
+      - name: Refuse middle dots in the built HTML (theme templates included)
+        run: python3 scripts/check-no-middot.py --site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

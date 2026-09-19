@@ -4,7 +4,7 @@ title: "근데 이게 제대로 작동하는지 어케 보장함?"
 date: 2026-09-16 14:26:00 +0900
 categories: [troubleshooting]
 tags: [diet-setlog, verification, flutter, kakao-login, rate-limit]
-summary: "두 달 만에 레포를 열어 문서대로 동작하는지 검증했더니 문서는 익명 우선, 앱은 카카오 필수였던 이야기"
+description: "두 달 만에 레포를 열어 문서대로 동작하는지 검증했더니 문서는 익명 우선, 앱은 카카오 필수였던 이야기"
 ---
 
 안녕하세요, 고준서입니다. diet-setlog는 6월 말에 GDG on Campus 전남대에서 디자이너 두 분, 개발자 두 명이 열하루 만에 만든 식단 기록 앱이에요. 저는 개발 둘 중 한 명으로 설계 문서를 쓰고 Claude Code로 구현을 돌리고 PR을 머지했습니다. 마지막 커밋은 7월 4일이었고, 그 뒤로 두 달 넘게 레포를 열지 않았어요.

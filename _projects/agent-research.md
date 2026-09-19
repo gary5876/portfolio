@@ -8,10 +8,12 @@ kind: "개인 프로젝트"
 role: "조사 위임과 재검증 요구, 검증 규칙과 훅 도입 결정, 평가 지표 설계 방향 결정"
 github: https://github.com/gary5876/agent-research
 order: 5
+importance: 5
+description: "분야 전문성이 있는 AI 에이전트를 어떻게 만드나, 그 과정에서 AI의 산출물을 어떻게 검증하나"
 display_name: "agent-research (분야 전문성이 있는 AI 에이전트 연구)"
 period: "2026.08 ~ 2026.09"
 result: "AI에게 나눠 맡긴 조사 6건 중 3건의 오류를 재검증으로 잡아 규칙으로 남김. 위키 사실 주장 30개를 소스로 추적하는 결정론적 지표와 비밀 값 필터 비교 하네스 구현"
-featured: ["/2026/09/05/delegated-research-three-of-six-wrong/", "/2026/09/02/grounding-metric-claims/"]
+featured: ["/blog/2026/09/05/delegated-research-three-of-six-wrong/", "/blog/2026/09/02/grounding-metric-claims/"]
 ---
 
 "내 분야에 전문성이 있는 AI 에이전트는 어디서 오는가"를 정리하는 개인 연구 레포입니다. 2026년 8월 31일 첫 커밋, 9월 6일까지 커밋 6개. 설계보다 검증에 무게가 있습니다. AI에게 조사를 맡기면 얼마나 틀리는지, 틀린 걸 어떻게 잡는지, 규칙을 어떻게 강제하는지.

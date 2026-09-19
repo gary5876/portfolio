@@ -4,14 +4,14 @@ title: "예외를 던지는 책임은 어디에: Repository로 옮겼다가 Serv
 date: 2025-07-21 09:00:00 +0900
 categories: [study]
 tags: [kakao-tech-campus, code-review, spring-boot, layering]
-summary: "없는 데이터의 예외를 어느 계층에서 던질지, 옮겼다가 되돌린 코드리뷰 기록"
+description: "없는 데이터의 예외를 어느 계층에서 던질지, 옮겼다가 되돌린 코드리뷰 기록"
 ---
 
 > 이렇게 null 을 던지는 방식보다는, exception 을 던지는 방식이 권장됩니다.
 > (도메인 객체가 없을 경우, flow를 중단하는 것이 자연스럽습니다)
 > 이렇게 null 을 던지게 되면, 사용하는 쪽에서 항상 null 처리를 해주어야 하고, NullPointerException 가능성이 높아지게 됩니다.
 
-안녕하세요, 고준서입니다. 카카오테크캠퍼스 세 번째 미션(spring-gift-enhancement) 이야기예요. 2025년 7월 17일부터 22일까지 JPA로 엔티티를 매핑하고 페이지네이션을 붙이는 개인 미션이었습니다. 위 코멘트는 1단계 PR에 달린 것이고, 이걸 받고 예외 던지는 자리를 옮겼는데 사흘 뒤 같은 멘토가 되돌리라고 하셨어요. [첫 미션의 ID 발번 이야기]({{ "/2025/07/01/id-generation-three-times/" | relative_url }})처럼 코멘트와 커밋 그대로 적습니다.
+안녕하세요, 고준서입니다. 카카오테크캠퍼스 세 번째 미션(spring-gift-enhancement) 이야기예요. 2025년 7월 17일부터 22일까지 JPA로 엔티티를 매핑하고 페이지네이션을 붙이는 개인 미션이었습니다. 위 코멘트는 1단계 PR에 달린 것이고, 이걸 받고 예외 던지는 자리를 옮겼는데 사흘 뒤 같은 멘토가 되돌리라고 하셨어요. [첫 미션의 ID 발번 이야기]({{ "/blog/2025/07/01/id-generation-three-times/" | relative_url }})처럼 코멘트와 커밋 그대로 적습니다.
 
 ## 1단계: null을 돌려주고 컨트롤러가 검사
 

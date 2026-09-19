@@ -8,10 +8,12 @@ kind: "팀 프로젝트, 캡스톤, 점수 엔진과 실험은 단독 담당"
 role: "내 담당: DSC 점수 엔진, 오염 실험 파이프라인, 통계 검증, 이미지와 텍스트 셀 확장"
 github: https://github.com/gary5876/capstone-dsc
 order: 4
+importance: 4
+description: "데이터 품질 점수가 모델 성능을 예측하는지 오염 실험으로 검증"
 display_name: "capstone-dsc (데이터 품질 점수가 모델 성능을 예측하는가)"
 period: "2026.04 ~ 2026.06"
 result: "정형 데이터 435건에서 점수와 F1의 상관 r 0.598 (p 1.6e-43), hold-out 5/5 통과"
-featured: ["/2026/06/03/dsc-blind-spot-signal-integrity/", "/2026/04/27/dropping-a-weighted-metric-adr-009/"]
+featured: ["/blog/2026/06/03/dsc-blind-spot-signal-integrity/", "/blog/2026/04/27/dropping-a-weighted-metric-adr-009/"]
 ---
 
 4학년 캡스톤. 데이터에 품질 점수(DSC)를 매기는 도구가 있을 때, 그 점수가 실제로 그 데이터로 학습한 모델의 성능을 예측하는지를

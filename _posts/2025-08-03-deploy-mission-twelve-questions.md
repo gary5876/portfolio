@@ -4,7 +4,7 @@ title: "배포 미션에서 받은 질문들, 그리고 그때 못 답한 CORS"
 date: 2025-08-03 09:00:00 +0900
 categories: [study]
 tags: [kakao-tech-campus, code-review, deploy, cors]
-summary: "처음 손으로 서버에 올리던 날 멘토가 던진 질문들에 답하고, 그때 넘어간 CORS 질문에 지금 답한 기록"
+description: "처음 손으로 서버에 올리던 날 멘토가 던진 질문들에 답하고, 그때 넘어간 CORS 질문에 지금 답한 기록"
 ---
 
 안녕하세요, 고준서입니다. 카카오테크캠퍼스 마지막 미션(spring-gift-order) 3단계는 지금까지 만든 서비스를 AWS EC2 서버에 직접 올리는 것이었어요. 2025년 8월 1일 오후에 PR([#293](https://github.com/next-step/spring-gift-order/pull/293))을 올렸고, 멘토는 코드를 고치라는 말보다 질문을 더 많이 남겼습니다. 리뷰 첫 코멘트가 이랬어요.

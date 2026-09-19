@@ -4,7 +4,7 @@ title: "친구가 0명인 첫날, 누구를 추천할 것인가"
 date: 2026-06-26 15:00:00 +0900
 categories: [decisions]
 tags: [diet-setlog, recommendation, cold-start, postgresql, redis]
-summary: "서비스 첫날엔 친구 관계가 하나도 없는데 친구 추천 목록을 무엇으로 채울지 정한 하루의 기록"
+description: "서비스 첫날엔 친구 관계가 하나도 없는데 친구 추천 목록을 무엇으로 채울지 정한 하루의 기록"
 ---
 
 안녕하세요, 고준서입니다. 6월 말에 GDG on Campus 전남대에서 디자이너 두 분, 개발자 두 명이 모여 diet-setlog라는 앱을 만들었어요. 음식 사진을 찍으면 Gemini가 칼로리를 읽어 주고, 그 기록을 캘린더에 모으고, 친구들과 피드로 서로 인증하는 앱입니다. 저는 개발 둘 중 한 명이었고, 설계 문서와 이슈를 쓰고 Claude Code로 구현을 돌린 뒤 PR을 읽고 머지하는 쪽이었어요. 이 레포는 첫 커밋부터 그렇게 일하기로 세팅했습니다([8964a9c](https://github.com/GDG-jnu-DietSetlog/diet-setlog/commit/8964a9c)).

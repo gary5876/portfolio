@@ -4,10 +4,10 @@ title: "GCP VM 위의 세 루프: proposer, reviewer, PR handler, 그리고 토�
 date: 2026-05-23 09:00:00 +0900
 categories: [decisions]
 tags: [vgc-ai, coding-agents, automation, github-actions]
-summary: "코딩 에이전트가 제안하고 통계 게이트가 판정하는 자율 루프를 셋으로 나눈 이유와 사고 세 번"
+description: "코딩 에이전트가 제안하고 통계 게이트가 판정하는 자율 루프를 셋으로 나눈 이유와 사고 세 번"
 ---
 
-안녕하세요, 고준서입니다. vgc-ai는 IEEE CoG 2026 포켓몬 VGC AI 대회를 목표로 혼자 시작한 게임 AI 프로젝트예요. 5월 19일부터 23일 사이에 GCP 가상 서버 위에 셸 루프 네 개를 올려서, 코딩 에이전트가 전략을 제안하고 구현하면 통계 기준이 판정하고 사람 손 없이 기본 전략이 바뀌는 구조를 만들었습니다. 판정 기준은 [지난 글]({{ "/2026/05/12/wilson-gate-16-verdicts/" | relative_url }})에, 벤치가 빈 메타로 재고 있던 일은 [그 다음 글]({{ "/2026/05/22/empty-meta-bench-harness/" | relative_url }})에 있고, 이번 글은 루프 자체입니다. 왜 셋으로 나눴는지, 각각이 언제 Claude를 부르는지, 그리고 첫 닷새 동안 세 번 멈춘 기록이에요.
+안녕하세요, 고준서입니다. vgc-ai는 IEEE CoG 2026 포켓몬 VGC AI 대회를 목표로 혼자 시작한 게임 AI 프로젝트예요. 5월 19일부터 23일 사이에 GCP 가상 서버 위에 셸 루프 네 개를 올려서, 코딩 에이전트가 전략을 제안하고 구현하면 통계 기준이 판정하고 사람 손 없이 기본 전략이 바뀌는 구조를 만들었습니다. 판정 기준은 [지난 글]({{ "/blog/2026/05/12/wilson-gate-16-verdicts/" | relative_url }})에, 벤치가 빈 메타로 재고 있던 일은 [그 다음 글]({{ "/blog/2026/05/22/empty-meta-bench-harness/" | relative_url }})에 있고, 이번 글은 루프 자체입니다. 왜 셋으로 나눴는지, 각각이 언제 Claude를 부르는지, 그리고 첫 닷새 동안 세 번 멈춘 기록이에요.
 
 ## 제안, 판정, 머지를 다른 프로세스에
 

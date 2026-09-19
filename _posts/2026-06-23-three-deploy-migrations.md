@@ -4,7 +4,7 @@ title: "배포 환경을 Railway에서 AWS EC2로, 다시 GCP Cloud Run으로 �
 date: 2026-06-23 09:00:00 +0900
 categories: [decisions]
 tags: [study-helper, deploy, gcp, aws, github-actions]
-summary: "석 달 사이 배포처를 세 번 바꾸면서 워크플로우 파일에 남은 결정과 그 근거"
+description: "석 달 사이 배포처를 세 번 바꾸면서 워크플로우 파일에 남은 결정과 그 근거"
 ---
 
 안녕하세요, 고준서입니다. study-helper는 PDF를 올리면 LLM으로 학습 노트와 문제를 만들어 주는 서비스를 혼자 만든 개인 프로젝트입니다. 이 프로젝트의 백엔드는 2026년 3월부터 6월 사이에 배포처가 세 번 바뀌었습니다. Railway에서 시작해 AWS EC2로 갔다가 GCP Cloud Run으로 끝났어요. 왜 그렇게 됐는지를 저장소에 남은 커밋 메시지, 워크플로우 파일, 설계 문서만으로 다시 정리해 봤습니다. 기억에 의존한 부분은 넣지 않았습니다.

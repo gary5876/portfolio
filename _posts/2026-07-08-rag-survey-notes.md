@@ -4,7 +4,7 @@ title: "RAG 서베이 논문 정독: 언제 도입할 가치가 있는가"
 date: 2026-07-08 09:00:00 +0900
 categories: [study]
 tags: [rag, paper-deep-read]
-summary: "RAG 서베이 논문을 읽고 언제 도입할 가치가 있는지 정리한 노트"
+description: "RAG 서베이 논문을 읽고 언제 도입할 가치가 있는지 정리한 노트"
 ---
 
 안녕하세요, 고준서입니다. 이건 긴 글이 아니라 읽은 논문을 정리해 둔 노트예요.

@@ -1,0 +1,56 @@
+---
+layout: default
+---
+<div class="post">
+  <header class="post-header">
+    {%- include project-tags.liquid project=page stack=false -%}
+    <h1 class="post-title">{{ page.display_name | default: page.title }}</h1>
+    {%- if page.summary -%}<p class="post-description">{{ page.summary }}</p>{%- endif -%}
+  </header>
+
+  <article>
+    <dl class="project-facts">
+      {%- if page.period -%}<dt>기간</dt><dd>{{ page.period }}</dd>{%- endif -%}
+      {%- if page.kind -%}<dt>구성</dt><dd>{{ page.kind }}</dd>{%- endif -%}
+      {%- if page.role -%}<dt>내 역할</dt><dd>{{ page.role | replace: "내 담당: ", "" }}</dd>{%- endif -%}
+      {%- if page.result -%}<dt>결과</dt><dd>{{ page.result }}</dd>{%- endif -%}
+    </dl>
+
+    {%- if page.stack -%}
+    <div class="tag-list">
+      {%- for s in page.stack -%}
+        {%- assign base = s | split: " (" | first | strip -%}
+        {%- assign slug = base | slugify -%}
+        <a class="tag-chip stack-chip" href="{{ "/tags/" | append: slug | append: "/" | relative_url }}">{{ s }}</a>
+      {%- endfor -%}
+    </div>
+    {%- endif -%}
+
+    <p class="project-links">
+      {%- if page.live_demo -%}<a href="{{ page.live_demo }}"><i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i> 실제 서비스 보기</a>{%- endif -%}
+      {%- if page.github -%}<a href="{{ page.github }}"><i class="fa-brands fa-github"></i> GitHub에서 코드 보기</a>{%- endif -%}
+    </p>
+
+    {%- if page.featured -%}
+    <h2>먼저 볼 글</h2>
+    <ul class="post-list">
+      {%- for url in page.featured -%}
+        {%- assign fp = site.posts | where: "url", url | first -%}
+        {%- if fp -%}{%- include post_item.liquid post=fp -%}{%- endif -%}
+      {%- endfor -%}
+    </ul>
+    {%- endif -%}
+
+    <div class="post-content" id="markdown-content">
+      {{ content }}
+    </div>
+
+    {%- assign related = site.posts | where_exp: "post", "post.tags contains page.tag" -%}
+    {%- if related.size > 0 -%}
+    <h2>이 프로젝트 관련 글 ({{ related.size }}편)</h2>
+    <ul class="post-list">
+      {%- for post in related -%}{%- include post_item.liquid post=post -%}{%- endfor -%}
+    </ul>
+    {%- endif -%}
+  </article>
+</div>

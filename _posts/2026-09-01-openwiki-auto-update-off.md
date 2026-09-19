@@ -4,7 +4,7 @@ title: "OpenWiki 자동 갱신을 18분 만에 끈 이유: LLM 없는 '뒤처진
 date: 2026-09-01 09:00:00 +0900
 categories: [decisions]
 tags: [team18-be, ax, documentation, github-actions, coding-agents]
-summary: "AI가 매일 위키를 고쳐 쓰는 자동화를 붙였다가 18분 만에 추적 기능만 남긴 결정"
+description: "AI가 매일 위키를 고쳐 쓰는 자동화를 붙였다가 18분 만에 추적 기능만 남긴 결정"
 ---
 
 안녕하세요, 고준서입니다. 동아리움이라는 대학 동아리 지원 서비스의 백엔드를 팀(백엔드 3인, 프론트엔드 3인)에서 맡고 있어요. 8월 30일에 팀 레포 README를 다시 쓰다가, 예전에 별표를 눌러 뒀던 도구 하나가 생각났습니다. 코드를 읽어서 AI가 이해하기 좋은 형태의 위키를 만들어 준다는 OpenWiki였어요. Claude Code에게 이렇게 시켰습니다.
