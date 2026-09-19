@@ -2,7 +2,7 @@
 layout: project
 title: "study-helper-backend"
 summary: "혼자 만든 풀스택 3레포, LLM 3사 연동 API"
-stack: [Python, FastAPI, PostgreSQL, Redis, LLM, Docker, AWS (EC2, ECR), GCP (Cloud Run), GitHub Actions]
+stack: [Python, FastAPI, PostgreSQL, Redis, LLM, Docker, "AWS (EC2, ECR)", "GCP (Cloud Run)", GitHub Actions]
 tag: study-helper
 kind: "개인 프로젝트"
 role: "설계 → 구현 → CI → 배포 전 과정 단독"
