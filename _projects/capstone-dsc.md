@@ -2,7 +2,7 @@
 layout: project
 title: "capstone-dsc"
 summary: "데이터 품질 점수가 모델 성능을 예측하는지 오염 실험으로 검증"
-stack: [Python, pandas, scikit-learn, XGBoost, Google Colab]
+stack: [Python, pandas, scikit-learn, XGBoost, "DQ4AI (데이터 오염 프레임워크)", Google Colab]
 tag: capstone-dsc
 kind: "팀 프로젝트(캡스톤), 점수 엔진과 실험은 단독 담당"
 role: "내 담당: DSC 점수 엔진, 오염 실험 파이프라인, 통계 검증, 이미지와 텍스트 셀 확장"
