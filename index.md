@@ -2,7 +2,6 @@
 layout: home
 ---
 <section class="hero">
-  <div class="hero-mark" aria-hidden="true">고</div>
   <div class="hero-text">
     <h1>고준서</h1>
     <p class="hero-tagline">

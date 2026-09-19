@@ -2,7 +2,7 @@
 layout: project
 title: "agent-research"
 summary: "분야 전문성이 있는 AI 에이전트를 어떻게 만드나, 그 과정에서 AI의 산출물을 어떻게 검증하나"
-stack: [Claude Code, OpenWiki, Python, DeepEval, Presidio, GitHub Actions]
+stack: [Claude Code, MCP, LLM, Python, GitHub Actions]
 tag: agent-research
 kind: "개인 프로젝트"
 role: "조사 위임과 재검증 요구, 검증 규칙과 훅 도입 결정, 평가 지표 설계 방향 결정"

@@ -2,7 +2,7 @@
 layout: project
 title: "vgc-ai"
 summary: "코딩 에이전트의 제안, 신뢰구간으로 걸러내기"
-stack: [Python 3.12, numpy, scipy, uv, pytest, mypy]
+stack: [Python, numpy, scipy, pytest, GCP (Compute Engine), Claude Code]
 tag: vgc-ai
 kind: "개인 프로젝트"
 role: "실험 파이프라인, 통계 게이트, 자율 루프 설계 단독"

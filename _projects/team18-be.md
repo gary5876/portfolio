@@ -2,7 +2,7 @@
 layout: project
 title: "Team18_BE"
 summary: "대학 동아리 지원서 도메인, 이벤트로 쪼갠 이유"
-stack: [Java, Spring Boot, MySQL, Redis]
+stack: [Java, Spring Boot, JPA, MySQL, Redis, AWS]
 tag: team18-be
 kind: "팀 프로젝트, 백엔드 3인 + 프론트엔드 3인"
 role: "내 담당: 지원서 도메인 API, DB 모델링, 통계, 공지, 이메일 알림 전담"

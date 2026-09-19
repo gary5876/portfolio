@@ -2,7 +2,7 @@
 layout: project
 title: "diet-setlog"
 summary: "문서를 먼저 잠그고 코딩 에이전트로 11일 만에 만든 식단 기록 앱"
-stack: [Flutter, Riverpod, Node.js 20, TypeScript, Express, Prisma, PostgreSQL, Redis, BullMQ, Google Cloud Storage, Gemini, OpenAPI 3.1, GitHub Actions]
+stack: [Flutter, Node.js, TypeScript, PostgreSQL, Redis, GCP (Cloud Storage), Gemini, OpenAPI, MCP (Figma), GitHub Actions]
 tag: diet-setlog
 kind: "팀 프로젝트, 디자인 2인 + 개발 2인 (GDG on Campus 전남대)"
 role: "설계 문서와 이슈 작성, Claude Code로 구현(Figma MCP로 디자인 연결), PR 검토와 머지"

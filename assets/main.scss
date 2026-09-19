@@ -1,87 +1,66 @@
 ---
 ---
 
-// ---- Design tokens (override minima defaults before import) ----
-// Typography follows the readable-measure guidance from Butterick's
-// Practical Typography: 45-90 characters/line, generous line-height.
-$base-font-family: "IBM Plex Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !default;
-$base-font-size:   18px !default;
+// ---- 기본 값 (minima 불러오기 전에 덮어씀) ----
+// 글꼴은 한국 개발자 블로그에서 가장 흔한 Pretendard, 없으면 시스템 글꼴.
+$base-font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", "Noto Sans KR", sans-serif !default;
+$base-font-size:   17px !default;
 $base-font-weight: 400 !default;
-$small-font-size:  $base-font-size * 0.8 !default;
-$base-line-height: 1.65 !default;
+$small-font-size:  14px !default;
+$base-line-height: 1.7 !default;
 
 $spacing-unit:     32px !default;
 
-$text-color:       #1c1a17 !default;
-$background-color: #fbfaf8 !default;
-$brand-color:      #b8501f !default;
+$text-color:       #222222 !default;
+$background-color: #ffffff !default;
+$brand-color:      #1b64da !default;   // 링크에만 쓰는 한 가지 색
 
-$grey-color:       #6b675f !default;
-$grey-color-light: #e6e2db !default;
-$grey-color-dark:  #3a362e !default;
+$grey-color:       #767676 !default;
+$grey-color-light: #e5e5e5 !default;
+$grey-color-dark:  #444444 !default;
 
-$content-width:    740px !default;
+$content-width:    760px !default;
 
 @import "minima";
 
-$mono-font-family: "IBM Plex Mono", SFMono-Regular, Consolas, monospace;
+$mono-font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+$surface:          #f5f5f5;
 
-// Dark-mode palette. Not an inversion: hand-tuned so accent, borders and
-// code blocks stay legible against a warm near-black instead of pure #000.
-$dark-bg:          #18140f;
-$dark-surface:      #211b14;
-$dark-text:         #ece6da;
-$dark-border:       #3a3226;
-$dark-accent:       #e2823f;
-$dark-grey:         #b0a695;
+// 다크 모드
+$dark-bg:      #121212;
+$dark-surface: #1e1e1e;
+$dark-text:    #e4e4e4;
+$dark-border:  #333333;
+$dark-link:    #7fb0ff;
+$dark-grey:    #a0a0a0;
 
 // ---------------------------------------------------------------
-// Base / accessibility
+// 기본
 // ---------------------------------------------------------------
-html { scroll-behavior: smooth; }
-
-*:focus-visible {
-  outline: 2px solid $brand-color;
-  outline-offset: 3px;
-}
-
-::selection {
-  background: $brand-color;
-  color: #fff;
-}
+*:focus-visible { outline: 2px solid $brand-color; outline-offset: 2px; }
 
 .skip-link {
-  position: absolute;
-  left: -9999px;
-  top: 0;
-  background: $text-color;
-  color: $background-color;
-  padding: 10px 16px;
-  z-index: 100;
-  font-family: $mono-font-family;
-  font-size: 14px;
-
-  &:focus {
-    left: 12px;
-    top: 12px;
-  }
+  position: absolute; left: -9999px; top: 0;
+  background: $text-color; color: #fff; padding: 8px 14px; z-index: 100; font-size: 14px;
+  &:focus { left: 12px; top: 12px; }
 }
 
-// ---------------------------------------------------------------
-// Fluid modular type scale (1.2 ratio, clamped between mobile/desktop)
-// ---------------------------------------------------------------
-h1, .page-heading, .post-title { font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem); }
-h2, .post-list-heading         { font-size: clamp(1.4rem, 1.15rem + 1vw, 1.9rem); }
-h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem); }
+h1, .page-heading, .post-title { font-size: 1.9rem; }
+h2, .post-list-heading         { font-size: 1.35rem; }
+h3                              { font-size: 1.1rem; }
 
-.post-title, h1, h2, h3, h4 {
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.2;
+h1, h2, h3, h4, .post-title {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.35;
+  color: $text-color;
 }
 
+a { color: $brand-color; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
 // ---------------------------------------------------------------
-// Header / nav
+// 상단 메뉴
 // ---------------------------------------------------------------
 .site-header {
   border-top: none;
@@ -90,402 +69,234 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 }
 
 .site-title {
-  font-family: $mono-font-family;
-  font-weight: 600;
-  font-size: 20px;
+  font-weight: 700;
+  font-size: 19px;
   letter-spacing: 0;
-
   &, &:visited { color: $text-color; }
-  &:hover { color: $brand-color; text-decoration: none; }
+  &:hover { text-decoration: none; }
 }
 
 .site-nav .page-link {
-  font-family: $base-font-family;
   font-size: 15px;
-  font-weight: 500;
-  position: relative;
-  text-decoration: none;
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0; right: 0; bottom: -4px;
-    height: 1px;
-    background: $brand-color;
-    transform: scaleX(0);
-    transition: transform 0.15s ease;
-  }
-
-  &:hover::after { transform: scaleX(1); }
+  color: $grey-color-dark;
+  &:hover { color: $text-color; text-decoration: none; }
 }
 
 .site-nav .nav-dropdown { position: relative; display: inline-block; }
 
 .site-nav .dropdown-menu {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(4px);
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  display: none;
   position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: 10px;
+  top: 100%; left: 0;
+  margin-top: 8px;
   background: $background-color;
   border: 1px solid $grey-color-light;
-  border-radius: 10px;
-  min-width: 220px;
-  box-shadow: 0 8px 24px rgba(28, 26, 23, 0.08);
+  border-radius: 4px;
+  min-width: 240px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   z-index: 10;
-  padding: 6px 0;
+  padding: 4px 0;
 }
 
 .site-nav .nav-dropdown:hover .dropdown-menu,
-.site-nav .nav-dropdown:focus-within .dropdown-menu {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
+.site-nav .nav-dropdown:focus-within .dropdown-menu { display: block; }
 
 .site-nav .dropdown-menu a {
   display: block;
-  padding: 8px 16px;
+  padding: 7px 14px;
   white-space: nowrap;
-  font-family: $base-font-family;
   font-size: 14px;
-  text-transform: none;
-  letter-spacing: 0;
   color: $text-color;
-
-  &::after { display: none; }
-  &:hover { background: $grey-color-light; text-decoration: none; }
+  &:hover { background: $surface; text-decoration: none; }
 }
+.dropdown-menu small { color: $grey-color; font-size: 12px; }
 
 @media screen and (max-width: $on-palm) {
   .site-nav .nav-dropdown { display: block; }
   .site-nav .dropdown-menu {
-    opacity: 1; visibility: visible; transform: none;
-    position: static; border: none; box-shadow: none;
+    display: block; position: static; border: none; box-shadow: none;
     padding-left: 16px; margin-top: 0;
   }
 }
 
 // ---------------------------------------------------------------
-// Hero (homepage)
+// 홈 상단 소개
 // ---------------------------------------------------------------
 .hero {
-  display: flex;
-  gap: 24px;
-  align-items: flex-start;
-  padding-bottom: $spacing-unit;
-  margin-bottom: $spacing-unit;
+  padding-bottom: $spacing-unit * 0.75;
+  margin-bottom: $spacing-unit * 0.75;
   border-bottom: 1px solid $grey-color-light;
 }
-
-.hero-mark {
-  flex: none;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: $brand-color;
-  color: #fff;
-  font-family: $mono-font-family;
-  font-weight: 600;
-  font-size: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-text h1 {
-  margin: 0 0 8px;
-}
-
-.hero-tagline {
-  color: $grey-color-dark;
-  margin-bottom: 8px;
-}
-
-.hero-affiliation {
-  font-family: $mono-font-family;
-  font-size: $small-font-size;
-  color: $grey-color;
-  margin-bottom: 16px;
-}
-
+.hero-mark { display: none; }
+.hero-text h1 { margin: 0 0 10px; }
+.hero-tagline { color: $grey-color-dark; margin-bottom: 6px; }
+.hero-affiliation { font-size: $small-font-size; color: $grey-color; margin-bottom: 12px; }
 .hero-links {
-  display: flex;
-  gap: 16px;
-  font-family: $base-font-family;
-  font-size: 15px;
-  font-weight: 500;
-
+  display: flex; gap: 16px; font-size: 15px;
   a { color: $brand-color; }
 }
 
-@media screen and (max-width: $on-palm) {
-  .hero { flex-direction: column; }
-}
-
 // ---------------------------------------------------------------
-// Category badges & tag chips
+// 태그: 팀/개인, 기술 스택. 분류는 글자만.
 // ---------------------------------------------------------------
 .cat-badge {
-  display: inline-block;
-  font-family: $base-font-family;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 2px 8px;
-  border-radius: 4px;
-  margin-right: 8px;
-  vertical-align: middle;
-}
-
-.cat-projects     { background: #f4dfd2; color: #8a3a14; }
-.cat-study         { background: #dbe7e4; color: #235347; }
-.cat-troubleshooting { background: #f0dada; color: #8a2b2b; }
-
-.tag-list { margin: 8px 0 0; }
-
-.tag-chip {
-  display: inline-block;
-  font-family: $mono-font-family;
-  font-size: 11px;
+  display: inline;
+  font-size: $small-font-size;
   color: $grey-color;
-  border: 1px solid $grey-color-light;
-  border-radius: 999px;
-  padding: 2px 10px;
-  margin: 0 6px 6px 0;
+  margin-right: 8px;
 }
+.cat-badge::after { content: " |"; color: $grey-color-light; }
+.post-header .cat-badge::after { content: none; }
+
+.tag-list { margin: 6px 0 0; }
+
+.tag-chip,
+.kind-badge {
+  display: inline-block;
+  font-size: 12px;
+  line-height: 1.6;
+  color: $grey-color-dark;
+  background: $surface;
+  border-radius: 3px;
+  padding: 1px 7px;
+  margin: 0 4px 4px 0;
+}
+.kind-badge { margin-bottom: 6px; }
+.stack-chip { background: $surface; border: none; }
 
 .read-time::before { content: ", "; }
+.post-meta { font-size: $small-font-size; color: $grey-color; }
 
 // ---------------------------------------------------------------
-// Post list (cards)
+// 글 목록: 구분선 목록
 // ---------------------------------------------------------------
-.post-list {
-  margin-left: 0;
-  list-style: none;
-}
+.post-list { margin-left: 0; list-style: none; }
 
 .post-card {
   position: relative;
-  cursor: pointer;
-  padding: 20px;
-  margin-bottom: 20px;
-  border: 1px solid $grey-color-light;
-  border-radius: 12px;
-  background: $background-color;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 24px rgba(28, 26, 23, 0.06);
-    border-color: $brand-color;
-  }
+  padding: 18px 0;
+  margin: 0;
+  border-bottom: 1px solid $grey-color-light;
+  &:first-child { border-top: 1px solid $grey-color-light; }
+  h3 { margin: 4px 0 6px; font-size: 1.15rem; }
 }
+.post-card:hover .post-link { color: $brand-color; }
 
-.post-card-meta { margin-bottom: 6px; }
+.post-card-meta { margin-bottom: 0; }
 
-// 카드 전체를 덮는 투명 링크. 안쪽 링크는 위에 올려 둔다.
-.card-cover {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  border-radius: 12px;
-}
+// 항목 전체를 덮는 투명 링크. 안쪽 링크는 위에 올려 둔다.
+.card-cover { position: absolute; inset: 0; z-index: 1; }
 .post-card > *:not(.card-cover) { position: relative; z-index: 2; pointer-events: none; }
 .post-card a:not(.card-cover) { pointer-events: auto; }
 
-.post-link {
-  color: $text-color;
-  &:hover { color: $brand-color; }
-}
+.post-link { color: $text-color; font-size: inherit; &:hover { text-decoration: none; } }
+ul.post-list li.post-card h3 { margin: 4px 0 6px; font-size: 1.15rem; }
+.post-summary { color: $grey-color-dark; font-size: 15px; margin: 0; }
+.more-link { text-align: right; font-size: 15px; }
 
 // ---------------------------------------------------------------
-// Body copy
+// 본문
 // ---------------------------------------------------------------
+.post-header { margin-bottom: $spacing-unit; }
+.post-title { margin: 6px 0 8px; }
+
 .post-content, .page-content {
-  a { color: $brand-color; }
+  h2 { margin-top: $spacing-unit * 1.25; }
+  h3 { margin-top: $spacing-unit; }
 
   blockquote {
-    border-left: 3px solid $brand-color;
+    border-left: 3px solid $grey-color-light;
     color: $grey-color-dark;
-    font-family: $mono-font-family;
-    font-size: $small-font-size;
+    font-size: 16px;
+    letter-spacing: 0;
+    font-style: normal;
   }
 
   code {
     font-family: $mono-font-family;
-    background: $grey-color-light;
-    padding: 0.1em 0.35em;
-    border-radius: 4px;
+    font-size: 0.88em;
+    background: $surface;
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+    border: none;
   }
+  pre { border: none; border-radius: 4px; background: $surface; }
+  pre code { background: none; padding: 0; font-size: 0.85em; }
+
+  table { font-size: 15px; }
 }
+
+.highlight { background: $surface; border-radius: 4px; }
 
 // ---------------------------------------------------------------
-// Syntax highlighting (Rouge), tuned to the warm palette
+// 프로젝트 페이지
 // ---------------------------------------------------------------
-.highlight {
-  background: $grey-color-light;
-  border-radius: 8px;
-
-  .c, .c1, .cm { color: $grey-color; font-style: italic; }   // comments
-  .k, .kd, .kn { color: #8a3a14; font-weight: 600; }         // keywords
-  .s, .s1, .s2 { color: #235347; }                            // strings
-  .n, .nx      { color: $text-color; }
-  .nf, .nc     { color: #7a4fae; }                            // functions/classes
-  .o           { color: $brand-color; }                       // operators
-}
-
-// ---------------------------------------------------------------
-// Project hub pages
-// ---------------------------------------------------------------
-.project-role {
-  font-family: $mono-font-family;
-  font-size: $small-font-size;
-  color: $grey-color;
-  margin-top: -8px;
-}
-
-.stack-chip {
-  background: $grey-color-light;
-  border-color: transparent;
-}
-
-.kind-badge {
-  display: inline-block;
-  font-family: $mono-font-family;
-  font-size: 12px;
-  letter-spacing: 0.03em;
-  color: $grey-color-dark;
-  border: 1px solid $grey-color-dark;
-  border-radius: 4px;
-  padding: 2px 8px;
-  margin-bottom: 8px;
-}
-
-.dropdown-menu small { color: $grey-color; font-size: 11px; }
-
 .project-links {
-  margin: 16px 0 8px;
-  display: flex;
-  gap: 16px;
-  font-family: $base-font-family;
+  margin: 14px 0 6px;
+  display: flex; gap: 16px;
   font-size: 15px;
-  font-weight: 500;
-
-  a { color: $brand-color; }
 }
 
-.project-summary { color: $grey-color-dark; margin-bottom: 4px; }
-.project-result { color: $text-color; margin-bottom: 8px; }
-.project-repo { font-family: $mono-font-family; font-size: $small-font-size; color: $grey-color; margin-top: -8px; }
+.project-summary { color: $grey-color-dark; margin-bottom: 2px; font-size: 15px; }
+.project-result { color: $text-color; margin-bottom: 6px; font-size: 15px; }
 
 .project-facts {
   display: grid;
   grid-template-columns: max-content 1fr;
-  gap: 6px 16px;
+  gap: 4px 20px;
   margin: 16px 0;
-  padding: 16px 20px;
-  border: 1px solid $grey-color-light;
-  border-radius: 12px;
-  dt { font-weight: 600; color: $grey-color-dark; }
+  padding: 14px 0;
+  border-top: 1px solid $grey-color-light;
+  border-bottom: 1px solid $grey-color-light;
+  font-size: 15px;
+  dt { color: $grey-color; }
   dd { margin: 0; }
 }
 
-.post-summary { color: $grey-color-dark; font-size: 0.95em; margin: 4px 0 0; }
-.post-project { font-size: $small-font-size; color: $grey-color; margin-bottom: 8px; }
-.post-project-kind { border: 1px solid $grey-color-light; border-radius: 4px; padding: 0 6px; margin-left: 4px; }
+.post-project { font-size: $small-font-size; color: $grey-color; margin-bottom: 4px; }
+.post-project-kind { margin-left: 4px; }
 .post-footer {
   margin-top: $spacing-unit;
   padding-top: $spacing-unit * 0.5;
   border-top: 1px solid $grey-color-light;
-  font-size: 0.95em;
+  font-size: 15px;
+  p { margin-bottom: 6px; }
 }
-.more-link { text-align: right; }
-.cat-decisions      { background: #e6e0f0; color: #4b3b7a; }
-
-.related-posts {
-  margin-top: $spacing-unit * 1.5;
-  padding-top: $spacing-unit;
-  border-top: 1px solid $grey-color-light;
-}
+.related-posts, .featured-posts { margin-top: $spacing-unit; }
 
 // ---------------------------------------------------------------
-// History timeline
+// 연혁
 // ---------------------------------------------------------------
 .timeline {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    left: 118px;
-    top: 6px;
-    bottom: 6px;
-    width: 2px;
-    background: $grey-color-light;
-  }
-
+  list-style: none; margin: 0; padding: 0;
   li {
-    position: relative;
-    display: flex;
-    gap: 24px;
-    padding-bottom: $spacing-unit;
-  }
-
-  li::after {
-    content: "";
-    position: absolute;
-    left: 113px;
-    top: 4px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: $brand-color;
-    border: 3px solid $background-color;
+    display: flex; gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid $grey-color-light;
+    &:first-child { border-top: 1px solid $grey-color-light; }
   }
 }
-
 .timeline-date {
-  flex: none;
-  width: 96px;
-  text-align: right;
-  font-family: $mono-font-family;
-  font-size: $small-font-size;
-  color: $grey-color;
-  padding-top: 2px;
+  flex: none; width: 128px;
+  font-size: $small-font-size; color: $grey-color;
+  padding-top: 4px;
 }
-
 .timeline-body {
-  padding-left: 32px;
-
-  h3 { margin: 0 0 4px; font-size: 1.1rem; }
-  p { margin: 0; color: $grey-color-dark; }
+  h3 { margin: 0 0 4px; font-size: 1.05rem; }
+  p { margin: 0; color: $grey-color-dark; font-size: 15px; }
 }
-
-.timeline-note {
-  font-family: $mono-font-family;
-  font-size: $small-font-size;
-  color: $grey-color;
-}
+.timeline-note { font-size: $small-font-size; color: $grey-color; }
 
 @media screen and (max-width: $on-palm) {
-  .timeline::before { left: 6px; }
-  .timeline li { flex-direction: column; gap: 4px; }
-  .timeline li::after { left: 1px; top: 4px; }
-  .timeline-date { width: auto; text-align: left; }
-  .timeline-body { padding-left: 24px; }
+  .timeline li { flex-direction: column; gap: 2px; }
+  .timeline-date { width: auto; }
 }
 
 // ---------------------------------------------------------------
-// Figures (mermaid + captions)
+// 그림(mermaid)과 캡션
 // ---------------------------------------------------------------
 .mermaid {
-  // 본문(740px)보다 넓게 최대 960px까지 쓰고, 그래도 안 들어가면 가로 스크롤
+  // 본문보다 넓게 최대 960px까지 쓰고, 그래도 안 들어가면 가로 스크롤
   width: min(960px, 100vw - 2 * $spacing-unit);
   position: relative;
   left: 50%;
@@ -500,75 +311,51 @@ h3                              { font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4
 .figcap {
   display: block;
   text-align: center;
-  font-family: $mono-font-family;
+  font-style: normal;
   font-size: $small-font-size;
   color: $grey-color;
   margin-bottom: $spacing-unit * 0.75;
 }
 
 // ---------------------------------------------------------------
-// Footer
+// 하단
 // ---------------------------------------------------------------
-.site-footer { border-top: 1px solid $grey-color-light; }
+.site-footer { border-top: 1px solid $grey-color-light; font-size: 14px; color: $grey-color; }
 
 // ---------------------------------------------------------------
-// Dark mode: hand-tuned palette, not an inversion
+// 다크 모드
 // ---------------------------------------------------------------
 @media (prefers-color-scheme: dark) {
   body { background: $dark-bg; color: $dark-text; }
+  a { color: $dark-link; }
 
   .site-header, .site-footer { background: $dark-bg; border-color: $dark-border; }
-
+  .site-footer { color: $dark-grey; }
   .site-title, .site-title:visited, .post-title, h1, h2, h3, h4, .page-heading { color: $dark-text; }
-  .site-title:hover { color: $dark-accent; }
-
-  .site-nav .page-link { color: $dark-text; }
-  .site-nav .page-link::after { background: $dark-accent; }
-
-  .site-nav .dropdown-menu {
-    background: $dark-surface;
-    border-color: $dark-border;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  }
-  .site-nav .dropdown-menu a { color: $dark-text; }
-  .site-nav .dropdown-menu a:hover { background: $dark-border; }
+  .site-nav .page-link { color: $dark-grey; &:hover { color: $dark-text; } }
+  .site-nav .dropdown-menu { background: $dark-surface; border-color: $dark-border; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); }
+  .site-nav .dropdown-menu a { color: $dark-text; &:hover { background: $dark-border; } }
 
   .hero { border-color: $dark-border; }
-  .hero-tagline { color: $dark-grey; }
-  .hero-affiliation { color: $dark-grey; }
-  .hero-links a { color: $dark-accent; }
+  .hero-tagline, .post-summary, .project-summary, .timeline-body p { color: $dark-grey; }
+  .hero-affiliation, .post-meta, .cat-badge, .post-project, .timeline-date, .timeline-note, .figcap, .post-content p > em:only-child { color: $dark-grey; }
+  .cat-badge::after { color: $dark-border; }
+  .hero-links a, .project-links a { color: $dark-link; }
 
-  .post-card {
-    background: $dark-surface;
-    border-color: $dark-border;
-  }
-  .post-card:hover { border-color: $dark-accent; box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35); }
+  .post-card, .post-card:first-child, .timeline li, .timeline li:first-child, .project-facts, .post-footer, .hero { border-color: $dark-border; }
+  .post-link, .post-content, .page-content, .project-result { color: $dark-text; }
+  .post-card:hover .post-link { color: $dark-link; }
+  .project-facts dt { color: $dark-grey; }
 
-  .post-link, .post-content, .page-content { color: $dark-text; }
-  .post-link:hover { color: $dark-accent; }
-  .post-content a, .page-content a { color: $dark-accent; }
-  .post-meta, .tag-chip { color: $dark-grey; border-color: $dark-border; }
+  .tag-chip, .kind-badge, .stack-chip { background: $dark-surface; color: $dark-grey; }
 
-  .post-content code, .page-content code { background: $dark-border; color: $dark-text; }
-  .highlight { background: $dark-surface; border: 1px solid $dark-border; }
-  .highlight .n, .highlight .nx { color: $dark-text; }
-  .highlight .c, .highlight .c1, .highlight .cm { color: $dark-grey; }
+  .post-content blockquote, .page-content blockquote { border-color: $dark-border; color: $dark-grey; }
+  .post-content code, .page-content code { background: $dark-surface; color: $dark-text; }
+  .post-content pre, .page-content pre, .highlight { background: $dark-surface; }
+  .post-content table, .page-content table { color: $dark-text; border-color: $dark-border; }
+  .post-content th, .post-content td, .page-content th, .page-content td { border-color: $dark-border; }
+  .post-content th, .page-content th { background: $dark-surface; }
+  .post-content tr:nth-child(even), .page-content tr:nth-child(even) { background: $dark-bg; }
 
-  ::selection { background: $dark-accent; color: $dark-bg; }
   .skip-link { background: $dark-text; color: $dark-bg; }
-
-  .stack-chip { background: $dark-border; }
-  .project-facts { border-color: $dark-border; dt { color: $dark-grey; } }
-  .project-result { color: $dark-text; }
-  .post-summary, .post-project, .project-repo { color: $dark-grey; }
-  .post-footer { border-color: $dark-border; }
-  .post-project-kind { border-color: $dark-border; }
-  .project-role, .project-summary, .timeline-note { color: $dark-grey; }
-  .project-links a { color: $dark-accent; }
-  .related-posts { border-color: $dark-border; }
-
-  .timeline::before { background: $dark-border; }
-  .timeline li::after { background: $dark-accent; border-color: $dark-bg; }
-  .timeline-date { color: $dark-grey; }
-  .timeline-body p { color: $dark-grey; }
 }
