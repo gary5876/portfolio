@@ -4,9 +4,9 @@ title: 프로젝트
 permalink: /projects/
 ---
 
-태그를 누르면 같은 기술을 쓴 프로젝트를 모아 볼 수 있습니다. [태그 전체 보기]({{ "/tags/" | relative_url }})
+<p>태그를 누르면 같은 기술을 쓴 프로젝트를 모아 볼 수 있습니다. <a href="{{ "/tags/" | relative_url }}">태그 전체 보기</a></p>
 
-{%- assign sorted_projects = site.projects | sort: "order" -%}
+{% assign sorted_projects = site.projects | sort: "order" %}
 <ul class="post-list">
   {%- for proj in sorted_projects -%}
   <li class="post-card project-card">
