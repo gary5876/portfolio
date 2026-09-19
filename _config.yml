@@ -14,8 +14,8 @@ footer_text: >
   Jekyll과 <a href="https://github.com/alshedivat/al-folio">al-folio</a> 테마로 만들었고 GitHub Pages에 올렸습니다.
 keywords: 고준서, 백엔드 개발자, Spring Boot, FastAPI, LLM, 포트폴리오
 lang: ko
-icon: favicon.svg
-apple_touch_icon:
+icon: avatar.png
+apple_touch_icon: avatar.png
 
 url: https://gary5876.github.io
 baseurl: /portfolio
