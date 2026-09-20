@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "근데 이게 제대로 작동하는지 어케 보장함?"
 date: 2026-09-16 14:26:00 +0900
 categories: [troubleshooting]

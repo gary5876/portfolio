@@ -13,7 +13,7 @@ description: "문서를 먼저 잠그고 코딩 에이전트로 11일 만에 만
 display_name: "diet-setlog (음식 사진으로 칼로리를 기록하는 식단 앱)"
 period: "2026.06 ~ 2026.07"
 result: "11일 동안 비머지 커밋 39개 중 30개 담당, API 16개 경로 20개 동작, 서버 테스트 157개(커버리지 7.97%에서 81.5%). 배포는 하지 않음"
-featured: ["/blog/2026/06/26/friend-recommendation-cold-start/", "/blog/2026/09/16/anonymous-first-but-kakao-required/"]
+featured: ["/blog/2026/06/26/friend-recommendation-cold-start/", "/blog/2026/06/28/openapi-contract-guard-tests/"]
 ---
 
 음식 사진을 찍으면 Gemini가 칼로리와 영양을 읽어 주고, 그 기록을 캘린더로 모아 보고, 친구들과 피드로 서로 인증하는 앱입니다.
@@ -43,7 +43,7 @@ pglite 인메모리 Postgres로 Docker 없이 라우트 통합 테스트를 돌�
 
 ### 두 달 뒤에 확인한 것
 
-9월 16일에 레포를 다시 열어 문서대로 동작하는지 검증했습니다. 문서는 "익명 세션으로 전 기능 사용"이라고 하는데 앱은 카카오 로그인이 없으면 홈에 못 들어가고, 게스트 세션 API는 서버와 앱 클라이언트 양쪽에 완성된 채 어디서도 호출되지 않으며, 스펙에 적힌 레이트리밋은 구현되지 않았습니다. 자세한 건 [근데 이게 제대로 작동하는지 어케 보장함?]({{ "/blog/2026/09/16/anonymous-first-but-kakao-required/" | relative_url }})에 적었습니다.
+9월 16일에 레포를 다시 열어 문서대로 동작하는지 검증했습니다. 문서는 "익명 세션으로 전 기능 사용"이라고 하는데 앱은 카카오 로그인이 없으면 홈에 못 들어가고, 게스트 세션 API는 서버와 앱 클라이언트 양쪽에 완성된 채 어디서도 호출되지 않으며, 스펙에 적힌 레이트리밋은 구현되지 않았습니다. 문서를 실제 구현(카카오 필수)에 맞춰 고치는 작업이 남아 있습니다.
 
 ### 참고
 - [spec-lock.md](https://github.com/GDG-jnu-DietSetlog/diet-setlog/blob/develop/docs/plans/spec-lock.md)
