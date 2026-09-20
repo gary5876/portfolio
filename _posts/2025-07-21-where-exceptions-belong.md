@@ -4,14 +4,16 @@ title: "예외를 던지는 책임은 어디에: Repository로 옮겼다가 Serv
 date: 2025-07-21 09:00:00 +0900
 categories: [study]
 tags: [kakao-tech-campus, code-review, spring-boot, layering]
-description: "없는 데이터의 예외를 어느 계층에서 던질지, 옮겼다가 되돌린 코드리뷰 기록"
+description: "없는 데이터의 예외를 리포지토리로 옮겼다가 사흘 만에 서비스로 되돌린 이유. 리포지토리는 Optional만, 판단은 서비스가"
 ---
 
 > 이렇게 null 을 던지는 방식보다는, exception 을 던지는 방식이 권장됩니다.
 > (도메인 객체가 없을 경우, flow를 중단하는 것이 자연스럽습니다)
 > 이렇게 null 을 던지게 되면, 사용하는 쪽에서 항상 null 처리를 해주어야 하고, NullPointerException 가능성이 높아지게 됩니다.
 
-안녕하세요, 고준서입니다. 카카오테크캠퍼스 세 번째 미션(spring-gift-enhancement) 이야기예요. 2025년 7월 17일부터 22일까지 JPA로 엔티티를 매핑하고 페이지네이션을 붙이는 개인 미션이었습니다. 위 코멘트는 1단계 PR에 달린 것이고, 이걸 받고 예외 던지는 자리를 옮겼는데 사흘 뒤 같은 멘토가 되돌리라고 하셨어요. [첫 미션의 ID 발번 이야기]({{ "/blog/2025/07/01/id-generation-three-times/" | relative_url }})처럼 코멘트와 커밋 그대로 적습니다.
+안녕하세요, 고준서입니다. 카카오테크캠퍼스 세 번째 미션(spring-gift-enhancement) 이야기예요. 2025년 7월 17일부터 22일까지 JPA로 엔티티를 매핑하고 페이지네이션을 붙이는 개인 미션이었습니다. 위 코멘트는 1단계 PR에 달린 것이고, 이걸 받고 예외 던지는 자리를 리포지토리로 옮겼는데 사흘 뒤 같은 멘토가 되돌리라고 하셨어요. 되돌린 뒤의 답은 한 줄입니다. 리포지토리는 있는지 없는지를 `Optional`로만 말하고, 그 없음이 오류인지는 서비스가 정합니다.
+
+이 글은 왜 처음에 리포지토리로 옮겼고 왜 사흘 만에 서비스로 되돌렸는지를 [첫 미션의 ID 발번 이야기]({{ "/blog/2025/07/01/id-generation-three-times/" | relative_url }})처럼 멘토 코멘트를 원문으로 인용하며 적습니다. 개인 미션이라 트래픽이나 규모 숫자는 없습니다.
 
 ## 1단계: null을 돌려주고 컨트롤러가 검사
 
@@ -108,4 +110,11 @@ PR 본문에 적어 둔 고민의 답이 여기 있었습니다. 리포지토리
 
 1단계 리뷰의 코멘트 하나는 습관이 됐습니다. `ProductResponse`에 `public static ProductResponse from(Product product)`를 두면 `.map(ProductResponse::from)`으로 쓸 수 있다는 것이었고, 2단계 커밋에서 그렇게 바꿨어요. 이후 팀 프로젝트 Team18_BE에서 제가 처음 만든 응답 DTO 네 개(`ClubListResponseDto`, `UserFormQuestionResponseDto`, `MyProfileResponseDto`, 그리고 문자열을 enum으로 바꾸는 `StatisticsDimension`)가 전부 같은 `from` 정적 팩터리 모양입니다. 2025년 9월부터 2026년 8월까지 이어졌어요.
 
-되돌린 결정은 지금도 맞다고 봅니다. 다만 그때 서비스 메서드마다 `findById(...).orElseThrow(() -> new ...NotFoundException(...))`를 아홉 번 복사한 건, 중복을 없애라는 첫 코멘트와 책임을 옮기라는 두 번째 코멘트 사이에서 두 번째만 택한 결과였습니다. 서비스 안에 `private Product getProduct(Long id)` 하나를 두면 책임은 서비스에 남기면서 중복도 없앨 수 있었는데, 그 자리를 못 본 채 미션이 끝났습니다. 읽어주셔서 감사합니다.
+되돌린 결정은 지금도 맞다고 봅니다. 다만 그때 서비스 메서드마다 `findById(...).orElseThrow(() -> new ...NotFoundException(...))`를 아홉 번 복사한 건, 중복을 없애라는 첫 코멘트와 책임을 옮기라는 두 번째 코멘트 사이에서 두 번째만 택한 결과였습니다. 서비스 안에 `private Product getProduct(Long id)` 하나를 두면 책임은 서비스에 남기면서 중복도 없앨 수 있었는데, 그 자리를 못 본 채 미션이 끝났습니다.
+
+이 미션에서 지금도 쓰는 기준은 이렇습니다.
+
+1. 같은 조회를 놓고 예외의 방향이 갈리면(로그인의 "없음"은 오류, 회원가입의 "없음"은 정상), 그 판단은 조회하는 쪽이 아니라 부르는 쪽의 것입니다. 리포지토리에 `getByIdOrThrow`를 두는 순간 그 갈림을 리포지토리가 떠안게 됩니다.
+2. 코멘트 두 개가 서로 당길 때는 둘 다 만족하는 자리가 있는지 먼저 찾아야 합니다. 저는 "책임을 옮기라"만 택하고 "중복을 없애라"를 버렸는데, 서비스 안의 private 메서드 하나면 둘 다 됐습니다.
+
+읽어주셔서 감사합니다.
