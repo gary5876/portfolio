@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "혹시 레퍼런스 조사 대충한 건 아니지?"
 date: 2026-09-05 09:00:00 +0900
 categories: [troubleshooting]

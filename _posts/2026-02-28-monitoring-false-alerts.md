@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "Grafana 알림이 서버가 아니라 설정 때문에 울리고 있었습니다"
 date: 2026-02-28 09:00:00 +0900
 categories: [troubleshooting]

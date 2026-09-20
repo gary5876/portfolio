@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "meta-aware 전략 전부가 빈 meta로 벤치되고 있었다: set_meta를 한 번도 부르지 않은 하네스"
 date: 2026-05-22 09:00:00 +0900
 categories: [troubleshooting]

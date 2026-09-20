@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "배포 미션에서 받은 질문들, 그리고 그때 못 답한 CORS"
 date: 2025-08-03 09:00:00 +0900
 categories: [study]

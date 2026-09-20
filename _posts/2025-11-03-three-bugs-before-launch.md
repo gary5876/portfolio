@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "실서비스로 넘어가기 직전 일주일에 고친 것들"
 date: 2025-11-03 09:00:00 +0900
 categories: [troubleshooting]

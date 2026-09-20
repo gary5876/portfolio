@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "OpenWiki 자동 갱신을 18분 만에 끈 이유: LLM 없는 '뒤처진 커밋 수' 추적"
 date: 2026-09-01 09:00:00 +0900
 categories: [decisions]

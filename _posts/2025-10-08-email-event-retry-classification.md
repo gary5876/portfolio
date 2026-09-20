@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "이메일 발송을 이벤트로 떼어내고, 실패를 재시도 가능과 불가로 나누기"
 date: 2025-10-08 09:00:00 +0900
 categories: [decisions]

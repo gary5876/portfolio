@@ -1,5 +1,6 @@
 ---
 layout: post
+published: false
 title: "LLM 출력은 그대로 믿지 않는다: 검증 파이프라인과 그 한계, 한글 토큰화 버그"
 date: 2026-04-25 09:00:00 +0900
 categories: [troubleshooting]
