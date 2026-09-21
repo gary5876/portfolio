@@ -10,8 +10,7 @@ contact_note: >
   이메일이 가장 빠릅니다.
 description: >
   백엔드 개발자 고준서. 카카오테크캠퍼스 백엔드 과정 수료, 대학 동아리 지원 서비스 동아리움을 팀에서 10개월 운영하며 통계, 공지, 이메일 알림 전담. 개인 프로젝트로 LLM 학습 서비스와 게임 AI. 코딩 에이전트가 만든 코드를 테스트와 통계로 검증하며 일합니다.
-footer_text: >
-  Jekyll과 <a href="https://github.com/alshedivat/al-folio">al-folio</a> 테마로 만들었고 GitHub Pages에 올렸습니다.
+footer_text: ""
 keywords: 고준서, 백엔드 개발자, Spring Boot, FastAPI, LLM, 포트폴리오
 lang: ko
 icon: avatar.png
