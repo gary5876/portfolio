@@ -1,0 +1,37 @@
+{%- comment -%}
+al_folio_core의 footer.liquid를 덮어씀. 원본은 성을 first/middle/last 세 칸으로 나눠 붙이는데,
+이 사이트는 성 없이 site.title(고준서) 하나만 쓰므로 그대로 쓰면 이름 뒤에 빈 칸이 남아
+"고준서 ."처럼 마침표 앞에 공백이 낀 채로 나온다. site.title로 바로 이어붙여 고친다.
+{%- endcomment -%}
+{% capture footer_contents %}
+  &copy; Copyright {{ site.time | date: '%Y' }}
+  {{ site.title }}. {{ site.footer_text }}
+  {% if site.impressum_path %}
+    <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
+  {% endif %}
+  {% if site.last_updated %}
+    Last updated: {{ 'now' | date: '%B %d, %Y' }}.
+  {% endif %}
+{% endcapture %}
+
+{% if site.footer_fixed %}
+  <footer class="fixed-bottom" role="contentinfo">
+    <div class="container mt-0">
+      {{ footer_contents }}
+    </div>
+  </footer>
+{% else %}
+  <footer class="sticky-bottom mt-5" role="contentinfo">
+    {% if site.newsletter.enabled %}
+      {% if site.plugins contains 'al_newsletter' %}
+        {% include plugins/al_newsletter_form_center.liquid %}
+      {% else %}
+        {% include newsletter.liquid %}
+      {% endif %}
+    {% endif %}
+
+    <div class="container">
+      {{ footer_contents }}
+    </div>
+  </footer>
+{% endif %}
