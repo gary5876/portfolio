@@ -1,0 +1,117 @@
+{%- comment -%}
+al_folio_core의 header.liquid를 덮어씀. al-folio 기본 메뉴는 "소개(About)"를 무조건
+맨 앞에 두고, 그 뒤에 nav_order로 정렬한 페이지들을 붙인다. 이 사이트는 그전부터
+"프로젝트(드롭다운) / 문제 해결 / 설계 결정 / 공부 노트 / 연혁 / 소개 / 연락처" 순서를
+따로 정해 뒀었고(면접관은 왼쪽부터 읽는다는 이유로 프로젝트를 맨 앞에 둠), al-folio로
+테마를 바꾸면서 이 구조가 al-folio 기본값으로 조용히 바뀐 걸 나중에 발견해 되돌린다.
+디자인(색, 카드, 다크모드)은 al-folio 걸 그대로 쓰고 메뉴 구조만 원래대로 되돌리는 것.
+{%- endcomment -%}
+<header>
+  <!-- Nav Bar -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
+    <div class="container">
+      {% if page.permalink != '/' %}
+        <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+          {{- site.title -}}
+        </a>
+      {% elsif site.enable_navbar_social %}
+        <div class="navbar-brand social">{% social_links %}</div>
+      {% endif %}
+      <button
+        class="navbar-toggler collapsed navbar-toggler-main"
+        type="button"
+        data-nav-toggle="navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+
+      <div class="collapse navbar-collapse navbar-collapse-main" id="navbarNav">
+        <ul class="navbar-nav navbar-menu-list flex-nowrap">
+
+          <!-- 프로젝트 (드롭다운) -->
+          {%- assign sorted_projects = site.projects | sort: "importance" -%}
+          <li class="nav-item dropdown {% if page.collection == 'projects' or page.url == '/projects/' %}active{% endif %}">
+            <a
+              class="nav-link dropdown-toggle"
+              href="{{ '/projects/' | relative_url }}"
+              id="navbarDropdown"
+              role="button"
+              data-nav-dropdown-toggle="true"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              프로젝트
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              {%- for proj in sorted_projects -%}
+                <a class="dropdown-item" href="{{ proj.url | relative_url }}">
+                  {{- proj.display_name | default: proj.title -}}
+                  {%- if proj.kind contains "팀" %} <small>(팀)</small>{% endif -%}
+                </a>
+              {%- endfor -%}
+            </div>
+          </li>
+
+          <!-- 문제 해결 / 설계 결정 / 공부 노트 -->
+          <li class="nav-item {% if page.url contains '/blog/category/troubleshooting' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/blog/category/troubleshooting/' | relative_url }}">문제 해결</a>
+          </li>
+          <li class="nav-item {% if page.url contains '/blog/category/decisions' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/blog/category/decisions/' | relative_url }}">설계 결정</a>
+          </li>
+          <li class="nav-item {% if page.url contains '/blog/category/study' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/blog/category/study/' | relative_url }}">공부 노트</a>
+          </li>
+
+          <!-- 연혁 -->
+          <li class="nav-item {% if page.url == '/history/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/history/' | relative_url }}">연혁</a>
+          </li>
+
+          <!-- 소개 -->
+          <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/' | relative_url }}">
+              소개
+              {% if page.permalink == '/' %}<span class="sr-only">(current)</span>{% endif %}
+            </a>
+          </li>
+
+          <!-- 연락처 -->
+          <li class="nav-item {% if page.url == '/contact/' %}active{% endif %}">
+            <a class="nav-link" href="{{ '/contact/' | relative_url }}">연락처</a>
+          </li>
+
+          {% if site.search_enabled %}
+            <li class="nav-item">
+              <button id="search-toggle" type="button" title="Search" aria-label="Open search">
+                <span class="nav-link">ctrl k <i class="fa-solid fa-magnifying-glass"></i></span>
+              </button>
+            </li>
+          {% endif %}
+          {% if site.enable_darkmode %}
+            <li class="toggle-container">
+              <button id="light-toggle" type="button" title="Change theme" aria-label="Change color theme">
+                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+              </button>
+            </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav>
+  {% if site.enable_progressbar %}
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  {% endif %}
+</header>
