@@ -1,0 +1,17 @@
+{%- comment -%}
+al-folio 버전의 _includes/latest_posts.liquid 이식. 소개 페이지에서 최근 글 N개를 표로 보여준다.
+{%- endcomment -%}
+{%- assign limit = include.limit | default: 5 -%}
+<table class="latest-posts">
+  <tbody>
+    {%- for item in site.posts limit: limit -%}
+    <tr>
+      <td class="latest-posts-date">{{ item.date | date: '%Y년 %-m월 %-d일' }}</td>
+      <td>
+        <a class="latest-posts-title" href="{{ item.url | relative_url }}">{{ item.title }}</a>
+        {%- if item.description -%}<br><span class="latest-posts-desc">{{ item.description }}</span>{%- endif -%}
+      </td>
+    </tr>
+    {%- endfor -%}
+  </tbody>
+</table>

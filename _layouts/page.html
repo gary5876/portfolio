@@ -1,0 +1,21 @@
+---
+layout: default
+---
+{%- comment -%}
+al-folio 버전의 stock page.liquid를 그대로 옮긴 것: 제목 + description(부제)만 있는
+단순한 페이지용 레이아웃 (연락처, 연혁, 프로젝트 목록, 태그 목록, 저장소, 404).
+{%- endcomment -%}
+<div id="main" role="main">
+  <article class="page">
+    <div class="page__inner-wrap">
+      <header>
+        <h1 class="page__title">{{ page.title }}</h1>
+        {%- if page.description -%}<p class="post-description">{{ page.description }}</p>{%- endif -%}
+      </header>
+
+      <section class="page__content">
+        {{ content }}
+      </section>
+    </div>
+  </article>
+</div>

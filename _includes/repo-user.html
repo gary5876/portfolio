@@ -1,0 +1,15 @@
+{%- comment -%}
+al-folio 버전의 _includes/repository/repo_user.liquid 이식. github-stats-extended로
+GitHub 프로필 통계 카드를 이미지로 불러온다. include.username 필요.
+{%- endcomment -%}
+{%- assign stats_url = site.external_services.github_readme_stats_url | default: "https://github-stats-extended.vercel.app" -%}
+<div class="repo p-2 text-center">
+  <a href="https://github.com/{{ include.username }}">
+    <img class="only-light" alt="{{ include.username }}"
+         src="{{ stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_light }}&locale=ko&show_icons=true"
+         onerror="this.closest('.repo').style.display='none'">
+    <img class="only-dark" alt="{{ include.username }}"
+         src="{{ stats_url }}/api/?username={{ include.username }}&theme={{ site.repo_theme_dark }}&locale=ko&show_icons=true"
+         onerror="this.closest('.repo').style.display='none'">
+  </a>
+</div>

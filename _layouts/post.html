@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{%- assign proj = nil -%}
+{%- for p in site.projects -%}
+  {%- if page.tags contains p.tag -%}{%- assign proj = p -%}{%- endif -%}
+{%- endfor -%}
+{%- assign cat = page.categories | first -%}
+{%- assign read_time = page.content | strip_html | number_of_words | divided_by: 180 | plus: 1 -%}
+
+<div id="main" role="main">
+  <article class="page">
+    <div class="page__inner-wrap">
+      <header>
+        {%- if proj -%}
+        <p class="post-meta">관련 프로젝트: <a href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title }}</a></p>
+        {%- endif -%}
+        <h1 class="page__title">{{ page.title }}</h1>
+        <p class="post-meta">
+          {{ page.date | date: '%Y년 %-m월 %-d일' }}, 읽는 데 {{ read_time }}분
+        </p>
+        <p class="post-tags">
+          {%- if cat -%}
+            <a href="{{ cat | slugify | prepend: '/blog/category/' | relative_url }}"><i class="fas fa-tag fa-sm" aria-hidden="true"></i> {{ site.category_labels[cat] | default: cat }}</a>
+          {%- endif -%}
+          {%- assign year = page.date | date: '%Y' -%}
+          &nbsp; <a href="{{ year | prepend: '/blog/' | relative_url }}"><i class="fas fa-calendar fa-sm" aria-hidden="true"></i> {{ year }}</a>
+        </p>
+      </header>
+
+      <section class="page__content">
+        {{ content }}
+      </section>
+
+      {%- if proj -%}
+      {%- assign siblings = site.posts | where_exp: "p", "p.tags contains proj.tag" | sort: "date" -%}
+      {%- assign next_post = nil -%}
+      {%- for s in siblings -%}
+        {%- if s.date > page.date and next_post == nil -%}{%- assign next_post = s -%}{%- endif -%}
+      {%- endfor -%}
+      <hr>
+      <footer class="page__meta">
+        {%- if next_post -%}
+        <p>다음 글: <a href="{{ next_post.url | relative_url }}">{{ next_post.title }}</a></p>
+        {%- endif -%}
+        <p>
+          <a href="{{ proj.url | relative_url }}">{{ proj.display_name | default: proj.title }} 프로젝트로 돌아가기</a>
+          {%- if proj.github %}, <a href="{{ proj.github }}">GitHub에서 코드 보기</a>{% endif %}
+        </p>
+      </footer>
+      {%- endif -%}
+
+      {%- include related-posts.html -%}
+    </div>
+  </article>
+</div>

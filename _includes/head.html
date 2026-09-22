@@ -1,0 +1,46 @@
+{%- comment -%}
+MM 기본 head.html을 덮어씀. 원본은 컴파일된 스타일시트 하나(main.css)만 무조건 불러오는데,
+이 사이트는 방문자가 직접 누르는 라이트/다크 토글이 있어야 해서(al-folio 버전과 같은 UX)
+라이트/다크용 스타일시트를 각각 따로 컴파일해 두고, 첫 페인트 전에 실행되는 블로킹
+스크립트로 저장된 선호(localStorage) 또는 시스템 설정(prefers-color-scheme)에 맞는 쪽만
+켠다. MM 자체엔 런타임 다크모드 토글 기능이 없어서 직접 만든 것.
+{%- endcomment -%}
+{% assign locale = include.locale | default: site.locale %}
+<meta charset="utf-8">
+
+{% include seo.html locale=locale %}
+
+{% unless site.atom_feed.hide %}
+  <link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+{% endunless %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<link rel="stylesheet" href="{{ site.pretendard_url }}">
+<link id="theme-light-stylesheet" rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+<link id="theme-dark-stylesheet" rel="stylesheet" href="{{ '/assets/css/main-dark.css' | relative_url }}" disabled>
+<link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@latest/css/all.min.css"></noscript>
+
+<script>
+  (function () {
+    var stored = null;
+    try { stored = localStorage.getItem('theme'); } catch (e) {}
+    var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+    if (theme === 'dark') {
+      document.getElementById('theme-dark-stylesheet').disabled = false;
+      document.getElementById('theme-light-stylesheet').disabled = true;
+    }
+  })();
+</script>
+
+{% if site.search_enabled %}
+<link rel="preload" href="{{ '/search.json' | relative_url }}" as="fetch" type="application/json" crossorigin>
+{% endif %}
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@{{ site.mermaid_version | default: '10.7.0' }}/dist/mermaid.min.js"></script>

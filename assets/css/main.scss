@@ -1,0 +1,13 @@
+---
+search: false
+---
+
+@charset "utf-8";
+
+// al-folio 버전에서 확정했던 라이트 강조색(#1b64da, 파랑)을 MM 기본 회색 대신 쓴다.
+// !default 변수라 스킨/베이스 partial을 import하기 전에 먼저 값을 정해 두면 그게 이긴다.
+$primary-color: #1b64da;
+
+@import "minimal-mistakes/skins/default";
+@import "minimal-mistakes";
+@import "custom";

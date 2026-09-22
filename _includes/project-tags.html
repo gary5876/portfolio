@@ -1,6 +1,6 @@
 {%- comment -%}
-프로젝트의 팀/개인 태그와 기술 스택 태그를 링크로 그린다.
-include.project: 프로젝트 문서, include.stack: true면 스택 태그까지
+al-folio 버전의 _includes/project-tags.liquid 이식. 프로젝트의 팀/개인 태그와
+(include.stack이 true면) 기술 스택 태그를 링크로 그린다.
 {%- endcomment -%}
 {%- assign kind_name = "개인 프로젝트" -%}{%- assign kind_slug = "solo" -%}
 {%- if include.project.kind contains "팀" -%}{%- assign kind_name = "팀 프로젝트" -%}{%- assign kind_slug = "team" -%}{%- endif -%}

@@ -1,0 +1,24 @@
+---
+layout: null
+permalink: /search.json
+---
+[
+  {%- assign first = true -%}
+  {%- for post in site.posts -%}
+    {%- unless first %},{% endunless -%}{%- assign first = false -%}
+    {
+      "title": {{ post.title | jsonify }},
+      "description": {{ post.description | default: "" | jsonify }},
+      "url": {{ post.url | relative_url | jsonify }},
+      "category": {{ site.category_labels[post.categories.first] | default: post.categories.first | jsonify }}
+    }
+  {%- endfor -%}
+  {%- for project in site.projects -%}
+    ,{
+      "title": {{ project.display_name | default: project.title | jsonify }},
+      "description": {{ project.summary | default: project.description | default: "" | jsonify }},
+      "url": {{ project.url | relative_url | jsonify }},
+      "category": "프로젝트"
+    }
+  {%- endfor -%}
+]

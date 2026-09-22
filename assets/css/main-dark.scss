@@ -1,0 +1,12 @@
+---
+search: false
+---
+
+@charset "utf-8";
+
+// al-folio 버전에서 다크 모드에 쓰던 청록색을 MM 다크 스킨 기본값(#00adb5) 대신 쓴다.
+$primary-color: #2698ba;
+
+@import "minimal-mistakes/skins/dark";
+@import "minimal-mistakes";
+@import "custom";
