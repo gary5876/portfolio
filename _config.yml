@@ -10,6 +10,20 @@ description: >
   백엔드 개발자 고준서. 카카오테크캠퍼스 백엔드 과정 수료, 대학 동아리 지원 서비스 동아리움을 팀에서 10개월 운영하며 통계, 공지, 이메일 알림 전담. 개인 프로젝트로 LLM 학습 서비스와 게임 AI. 코딩 에이전트가 만든 코드를 테스트와 통계로 검증하며 일합니다.
 footer_text: ""
 keywords: "고준서, 백엔드 개발자, Spring Boot, FastAPI, LLM, 포트폴리오"
+
+# 왼쪽 사이드바(작성자 프로필 카드)용. Minimal Mistakes의 author-profile.html이 이 값을 읽는다.
+author:
+  name: "고준서"
+  avatar: "/assets/img/avatar.png"
+  bio: "백엔드 개발자. 카카오테크캠퍼스 백엔드 과정 수료, AWS Certified AI Practitioner"
+  email: "jerry0622@naver.com"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/gary5876"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/hi-d-357746213/"
 locale: "ko-KR"
 lang: ko
 

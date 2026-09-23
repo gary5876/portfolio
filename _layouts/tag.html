@@ -1,11 +1,14 @@
 ---
 layout: default
+author_profile: true
 ---
 {%- comment -%}
 MM 기본 tag.html을 덮어씀. 이건 post.tags용 jekyll-archives 아카이브가 아니라,
 _plugins/tag_pages.rb가 프로젝트 kind/stack별로 만드는 /tags/<slug>/ 페이지 전용 레이아웃.
 {%- endcomment -%}
 <div id="main" role="main">
+  {% include sidebar.html %}
+
   <article class="page">
     <div class="page__inner-wrap">
       <header>

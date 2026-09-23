@@ -1,5 +1,6 @@
 ---
 layout: default
+author_profile: true
 ---
 {%- assign proj = nil -%}
 {%- for p in site.projects -%}
@@ -9,6 +10,8 @@ layout: default
 {%- assign read_time = page.content | strip_html | number_of_words | divided_by: 180 | plus: 1 -%}
 
 <div id="main" role="main">
+  {% include sidebar.html %}
+
   <article class="page">
     <div class="page__inner-wrap">
       <header>

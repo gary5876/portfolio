@@ -1,11 +1,14 @@
 ---
 layout: default
+author_profile: true
 ---
 {%- comment -%}
 al-folio 버전의 stock page.liquid를 그대로 옮긴 것: 제목 + description(부제)만 있는
 단순한 페이지용 레이아웃 (연락처, 연혁, 프로젝트 목록, 태그 목록, 저장소, 404).
 {%- endcomment -%}
 <div id="main" role="main">
+  {% include sidebar.html %}
+
   <article class="page">
     <div class="page__inner-wrap">
       <header>

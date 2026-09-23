@@ -1,11 +1,14 @@
 ---
 layout: default
+author_profile: true
 ---
 {%- comment -%}
 MM 기본 archive.html을 덮어씀. jekyll-archives-v2가 posts 컬렉션의 연도/태그/분류별로
 만드는 페이지가 이 레이아웃을 쓴다 (jekyll-archives-v2 기본 레이아웃 이름이 "archive").
 {%- endcomment -%}
 <div id="main" role="main">
+  {% include sidebar.html %}
+
   <article class="page">
     <div class="page__inner-wrap">
       <header>

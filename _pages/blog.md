@@ -1,5 +1,6 @@
 ---
 layout: default
+author_profile: true
 permalink: /blog/
 title: 글
 pagination:
@@ -15,6 +16,8 @@ pagination:
 ---
 
 <div id="main" role="main">
+  {% include sidebar.html %}
+
   <article class="page">
     <div class="page__inner-wrap">
       <header>
