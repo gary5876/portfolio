@@ -13,7 +13,7 @@ importance: 1
 description: "대학 동아리 지원서 도메인, 이벤트로 쪼갠 이유"
 display_name: "동아리움 (대학 동아리 지원 서비스)"
 period: "2025.08 ~ 2026.09 (개발 3개월, 실서비스 10개월)"
-result: "GA 기준 이용자 2026년 1학기 약 3,100명, 2학기 866명(9월 기준)"
+result: "GA 기준 누적 이용자 약 4,000여 명, 이벤트 약 13만 건"
 featured: ["/blog/2026/08/18/statistics-cache-aside/", "/blog/2025/10/16/async-listener-lazy-init/"]
 ---
 
@@ -38,7 +38,7 @@ featured: ["/blog/2026/08/18/statistics-cache-aside/", "/blog/2025/10/16/async-l
 10개월 운영 중 기능 추가, 리팩터링의 회귀를 막는 안전망. 계층 분리로 실패 지점을 즉시 특정.
 
 ### 결과
-10개월 실서비스 운영, 팀 프로젝트(백엔드 3 + 프론트엔드 3), 카카오테크캠퍼스, GA 기준 이용자 2026년 1학기 약 3,100명, 2학기 866명(9월 기준)
+10개월 실서비스 운영, 팀 프로젝트(백엔드 3 + 프론트엔드 3), 카카오테크캠퍼스, GA 기준 누적 이용자 약 4,000여 명, 이벤트 약 13만 건
 
 ### 참고
 - [CI 워크플로](https://github.com/kakao-tech-campus-3rd-step3/Team18_BE/blob/develop/.github/workflows/ci-on-pr.yml)
