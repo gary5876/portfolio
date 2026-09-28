@@ -181,10 +181,35 @@ blockquote {
 }
 
 .post-item {
-  margin-bottom: 1.5rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid $border-color;
+
+  h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  .post-title {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  }
 
   p {
-    margin-bottom: 0.25rem;
+    margin: 0 0 0.25rem;
+    font-size: 0.8em;
+    line-height: 1.6;
+  }
+
+  p.post-meta,
+  p.post-tags {
+    font-size: 0.7em;
+    margin: 0.3rem 0 0;
   }
 }
 
@@ -195,8 +220,12 @@ blockquote {
 
 .post-tags a {
   color: $muted-text-color;
-  font-size: 0.85rem;
   margin-right: 0.5rem;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color;
+  }
 }
 
 .post-description {
@@ -253,20 +282,27 @@ blockquote {
 
 .project-facts {
   display: grid;
-  grid-template-columns: max-content 1fr;
-  gap: 0.3rem 1.2rem;
+  grid-template-columns: 5rem 1fr;
+  align-items: baseline;
+  gap: 0.5rem 1.2rem;
   margin: 1rem 0 1.2rem;
   padding: 0.9rem 0;
   border-top: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
+  font-size: 0.85em;
+
+  // MM이 dt에 margin-top, dd에 0.75em을 걸어 둬서 라벨이 값보다 한 줄 아래로 밀리고
+  // 값만 작아졌다. 둘 다 같은 크기로 두고 첫 줄 기준선을 맞춘다.
+  dt,
+  dd {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.6;
+  }
 
   dt {
     color: $muted-text-color;
     font-weight: 500;
-  }
-
-  dd {
-    margin: 0;
   }
 }
 
@@ -274,19 +310,31 @@ blockquote {
   margin-right: 1.2rem;
 }
 
+// 카드 안 줄(분류, 제목, 요약, 역할, 스택, 저장소)을 subgrid로 묶어서, 같은 행 카드끼리는
+// 제목이 한 줄이든 세 줄이든 요약, 역할, 스택이 같은 높이에서 시작하게 한다.
 .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.2rem;
+  column-gap: 1.2rem;
+  row-gap: 1.2rem;
   margin: 1.2rem 0;
 }
 
 .project-card {
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+  row-gap: 0;
   border: 1px solid $border-color;
   border-radius: 6px;
-  padding: 1.2rem;
+  transition: border-color 0.15s;
 
-  a {
+  > a {
+    display: grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+    padding: 1.1rem 1.2rem 1rem;
     color: inherit;
     text-decoration: none;
   }
@@ -295,27 +343,55 @@ blockquote {
     border-color: $primary-color;
   }
 
+  p,
+  h2 {
+    margin: 0;
+  }
+
   .card-kind {
-    font-size: 0.8rem;
+    font-size: 0.65em;
     color: $muted-text-color;
     margin-bottom: 0.3rem;
   }
 
   .card-title {
-    font-size: 1.15rem;
-    margin: 0 0 0.4rem;
+    font-size: 0.95em;
+    line-height: 1.35;
+    padding: 0 0 0.6rem;
+    margin-bottom: 0.7rem;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .card-text {
+    font-size: 0.75em;
+    line-height: 1.55;
+    margin-bottom: 0.7rem;
   }
 
   .card-role,
   .card-stack {
-    font-size: 0.85rem;
+    font-size: 0.68em;
+    line-height: 1.55;
     color: $muted-text-color;
   }
 
   .card-github {
-    font-size: 0.8rem;
+    align-self: end;
+    font-size: 0.65em;
     color: $muted-text-color;
-    margin-top: 0.6rem;
+    margin-top: 0.4rem;
+  }
+}
+
+// 프로젝트 목록처럼 카드가 여러 열로 깔리는 페이지는 MM이 오른쪽 목차 자리로 비워 둔
+// 여백까지 써서 3열로 편다. 머리말 설명은 읽기 폭을 유지한다.
+.page--wide {
+  @include breakpoint($x-large) {
+    padding-right: 0;
+  }
+
+  .post-description {
+    max-width: 42em;
   }
 }
 
@@ -330,6 +406,7 @@ blockquote {
 
   li {
     display: flex;
+    align-items: baseline;
     gap: 1.5rem;
     padding: 1rem 0;
     border-bottom: 1px solid $border-color;
@@ -345,7 +422,6 @@ blockquote {
   width: 9rem;
   font-size: 0.9rem;
   color: $muted-text-color;
-  padding-top: 0.2rem;
 }
 
 .timeline-body h3 {
@@ -374,26 +450,53 @@ blockquote {
  * 소개 페이지: 최근 글 표, 소셜
  * ------------------------------------------------------------------------- */
 
+// MM의 table 기본값(display: block, 셀 0.75em, 머리 테두리)이 섞여 제목 링크가 설명보다
+// 작게 나오고 날짜와 제목 기준선이 어긋났다. 셀 크기를 직접 정하고 기준선으로 맞춘다.
 .latest-posts {
+  display: table;
   width: 100%;
   border-collapse: collapse;
+  border: 0;
+  font-size: 0.85em;
 
   td {
-    padding: 0.5rem 1rem 0.5rem 0;
-    vertical-align: top;
-    border-top: 1px solid $border-color;
+    padding: 0.8rem 1rem 0.8rem 0;
+    vertical-align: baseline;
+    border: 0;
+    border-bottom: 1px solid $border-color;
+    font-size: 1em;
   }
+}
+
+// 최근 글 제목은 h2 밑줄(MM 기본)만 남기고 링크 밑줄은 뺀다.
+h2 > a[href$="/blog/"] {
+  text-decoration: none;
 }
 
 .latest-posts-date {
   white-space: nowrap;
+  width: 1%;
   color: $muted-text-color;
-  font-size: 0.9rem;
+  font-size: 0.85em !important;
+}
+
+.latest-posts-title {
+  font-weight: 600;
+  color: $text-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color;
+    text-decoration: underline;
+  }
 }
 
 .latest-posts-desc {
+  display: block;
+  margin-top: 0.2rem;
   color: $muted-text-color;
-  font-size: 0.9rem;
+  font-size: 0.9em;
+  line-height: 1.55;
 }
 
 .social {
