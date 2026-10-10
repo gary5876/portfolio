@@ -12,7 +12,7 @@ importance: 6
 description: "문서를 먼저 잠그고 코딩 에이전트로 11일 만에 만든 식단 기록 앱"
 display_name: "diet-setlog (음식 사진으로 칼로리를 기록하는 식단 앱)"
 period: "2026.06 ~ 2026.07"
-result: "11일 동안 비머지 커밋 39개 중 30개 담당, API 16개 경로 20개 동작, 서버 테스트 157개(커버리지 7.97%에서 81.5%). 배포는 하지 않음"
+result: "GDG on Campus 전남대 경진대회 1위. 11일 동안 비머지 커밋 39개 중 30개 담당, API 16개 경로 20개 동작, 서버 테스트 157개(커버리지 7.97%에서 81.5%). 배포는 하지 않음"
 featured: ["/blog/2026/06/26/friend-recommendation-cold-start/", "/blog/2026/06/28/openapi-contract-guard-tests/"]
 ---
 

@@ -25,6 +25,13 @@ nav_order: 3
   <li>
     <span class="timeline-date">2026.08</span>
     <div class="timeline-body">
+      <h3>AWS Certified Cloud Practitioner 취득</h3>
+      <p>2029.08까지 유효.</p>
+    </div>
+  </li>
+  <li>
+    <span class="timeline-date">2026.08</span>
+    <div class="timeline-body">
       <h3>AWS Cloud Practitioner Essentials 수료</h3>
     </div>
   </li>
@@ -39,7 +46,7 @@ nav_order: 3
     <span class="timeline-date">2026.06 ~ 2026.07</span>
     <div class="timeline-body">
       <h3><a href="{{ "/projects/diet-setlog/" | relative_url }}">diet-setlog</a> (팀 프로젝트, 디자인 2인 + 개발 2인)</h3>
-      <p>GDG on Campus 전남대 경진대회 출품작. 음식 사진으로 칼로리를 기록하는 모바일 앱. OpenAPI 계약과 설계 문서를 먼저 쓰고 Claude Code로 구현, 디자이너의 Figma는 MCP로 연결해 화면을 옮겼습니다.</p>
+      <p>GDG on Campus 전남대 경진대회 1위 수상작. 음식 사진으로 칼로리를 기록하는 모바일 앱. OpenAPI 계약과 설계 문서를 먼저 쓰고 Claude Code로 구현, 디자이너의 Figma는 MCP로 연결해 화면을 옮겼습니다.</p>
     </div>
   </li>
   <li>

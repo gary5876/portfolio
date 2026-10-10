@@ -22,6 +22,6 @@ latest_posts:
 
 **기술**: Java, Kotlin, Spring Boot, Python, FastAPI, MySQL, PostgreSQL, Redis, Docker, AWS, GCP
 
-**자격증과 수료**: AWS Certified AI Practitioner (2026.08 취득, 2029.08까지 유효), AWS Cloud Practitioner Essentials (2026.08 수료), Generative AI Essentials on AWS (2026.08.11 수료), 카카오테크캠퍼스 백엔드 과정 (2025.04 ~ 2025.11)
+**자격증과 수료**: AWS Certified Cloud Practitioner (2026.08 취득, 2029.08까지 유효), AWS Certified AI Practitioner (2026.08 취득, 2029.08까지 유효), AWS Cloud Practitioner Essentials (2026.08 수료), Generative AI Essentials on AWS (2026.08.11 수료), 카카오테크캠퍼스 백엔드 과정 (2025.04 ~ 2025.11)
 
 [프로젝트 보기]({{ "/projects/" | relative_url }}), [연혁 보기]({{ "/history/" | relative_url }}), [LLM/에이전트 관련 작업 모아보기]({{ "/tags/llm/" | relative_url }})
