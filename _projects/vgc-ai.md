@@ -5,7 +5,7 @@ summary: "코딩 에이전트의 제안, 신뢰구간으로 걸러내기"
 stack: [Python, numpy, scipy, pytest, GCP (Compute Engine), Claude Code]
 tag: vgc-ai
 kind: "개인 프로젝트"
-role: "실험 파이프라인, 통계 게이트, 자율 루프 설계 단독"
+role: "실험 파이프라인, 통계 게이트, 자율 루프 설계"
 github: https://github.com/gary5876/vgc-ai
 order: 3
 importance: 3

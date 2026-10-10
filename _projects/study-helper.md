@@ -5,7 +5,7 @@ summary: "혼자 만든 풀스택 3레포, LLM 3사 연동 API"
 stack: [Python, FastAPI, PostgreSQL, Redis, LLM, Docker, "AWS (EC2, ECR)", "GCP (Cloud Run)", GitHub Actions]
 tag: study-helper
 kind: "개인 프로젝트"
-role: "설계 → 구현 → CI → 배포 전 과정 단독"
+role: "설계 → 구현 → CI → 배포 전 과정"
 github: https://github.com/gary5876/study-helper-backend
 order: 2
 importance: 2
@@ -38,7 +38,7 @@ LLM 출력을 그대로 믿지 않음. 중복 제거, 환각 탐지, 필드 보�
 
 ### 결과
 GCP Cloud Run 키리스 배포, LLM 3사 연동, 솔로 풀사이클 (FastAPI 백엔드 + study-helper-web(Next.js/Supabase) +
-study-helper-mobile(React Native/Expo) 3레포 전부 단독 100%. 과거엔 배포돼 있었으나 지금은 비공개/중단.)
+study-helper-mobile(React Native/Expo) 3레포 전부 혼자 100% 작성. 과거엔 배포돼 있었으나 지금은 비공개/중단.)
 
 ### 참고
 - [배포 워크플로 (OIDC)](https://github.com/gary5876/study-helper-backend/blob/develop/.github/workflows/deploy.yml)

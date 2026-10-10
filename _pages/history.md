@@ -52,7 +52,7 @@ nav_order: 3
   <li>
     <span class="timeline-date">2026.04 ~ 2026.06</span>
     <div class="timeline-body">
-      <h3><a href="{{ "/projects/capstone-dsc/" | relative_url }}">capstone-dsc</a> (팀 캡스톤, 점수 엔진과 실험 단독 담당)</h3>
+      <h3><a href="{{ "/projects/capstone-dsc/" | relative_url }}">capstone-dsc</a> (팀 캡스톤, 점수 엔진과 실험 담당)</h3>
       <p>데이터 품질 점수가 모델 성능을 예측하는지 검증. 정형 435건 실험과 이미지 셀 실험.</p>
     </div>
   </li>
