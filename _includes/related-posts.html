@@ -1,0 +1,17 @@
+{%- comment -%}
+al-folio는 classifier-reborn 기반 유사도(site.related_posts)로 관련 글을 골랐는데
+Minimal Mistakes엔 동급 기능이 없다. 카테고리가 이미 주제별로 나뉘어 있어서
+"같은 카테고리 최신 글" 방식으로 단순화했다 (자기 자신 제외, 최대 site.related_blog_posts.max_related개).
+{%- endcomment -%}
+{%- assign cat = page.categories | first -%}
+{%- assign max_related = site.related_blog_posts.max_related | default: 5 -%}
+{%- assign related_posts = site.categories[cat] | where_exp: "p", "p.url != page.url" | slice: 0, max_related -%}
+{%- if site.related_blog_posts.enabled and related_posts.size > 0 -%}
+<hr>
+<h2>함께 읽을 만한 글</h2>
+<ul class="post-list">
+  {%- for post in related_posts -%}
+    {%- include post-item.html post=post -%}
+  {%- endfor -%}
+</ul>
+{%- endif -%}

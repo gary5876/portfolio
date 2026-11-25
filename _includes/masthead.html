@@ -1,0 +1,62 @@
+{%- comment -%}
+MM 기본 masthead.html을 덮어씀. 기본은 site.data.navigation.main을 평평한 목록으로만
+그리는데, 여기선 al-folio 버전에서 확정했던 순서를 그대로 가져온다:
+프로젝트(드롭다운, importance 정렬) / 문제 해결 / 설계 결정 / 공부 노트 / 연혁 / 소개 / 연락처.
+검색 버튼과 다크모드 토글도 여기서 같이 그린다(둘 다 자체 구현, assets/js/search.js와 theme.js).
+{%- endcomment -%}
+{%- assign sorted_projects = site.projects | sort: "importance" -%}
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav" aria-label="Primary navigation">
+        <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+        <ul class="visible-links">
+          <li class="masthead__menu-item masthead__menu-item--dropdown">
+            <a href="{{ '/projects/' | relative_url }}" class="dropdown-toggle">프로젝트</a>
+            <ul class="dropdown-menu">
+              {%- for proj in sorted_projects -%}
+                <li>
+                  <a href="{{ proj.url | relative_url }}">
+                    {{- proj.display_name | default: proj.title -}}
+                    {%- if proj.kind contains "팀" %} <small>(팀)</small>{% endif -%}
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </li>
+          <li class="masthead__menu-item"><a href="{{ '/blog/category/troubleshooting/' | relative_url }}">문제 해결</a></li>
+          <li class="masthead__menu-item"><a href="{{ '/blog/category/decisions/' | relative_url }}">설계 결정</a></li>
+          <li class="masthead__menu-item"><a href="{{ '/blog/category/study/' | relative_url }}">공부 노트</a></li>
+          <li class="masthead__menu-item"><a href="{{ '/history/' | relative_url }}">연혁</a></li>
+          <li class="masthead__menu-item"><a href="{{ '/' | relative_url }}">소개</a></li>
+          <li class="masthead__menu-item"><a href="{{ '/contact/' | relative_url }}">연락처</a></li>
+        </ul>
+        {% if site.search_enabled %}
+        <button id="search-toggle" class="search__toggle" type="button" title="검색" aria-label="검색 열기">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </button>
+        {% endif %}
+        {% if site.enable_darkmode %}
+        <button id="theme-toggle" class="theme-toggle" type="button" title="테마 변경" aria-label="라이트/다크 테마 전환">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+        </button>
+        {% endif %}
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">메뉴 열기</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+{% if site.search_enabled %}
+<div id="search-overlay" class="search-overlay" data-search-url="{{ '/search.json' | relative_url }}" hidden>
+  <div class="search-overlay__inner">
+    <input id="search-input" type="text" placeholder="검색어를 입력하세요" autocomplete="off">
+    <button id="search-close" type="button" aria-label="검색 닫기">&times;</button>
+    <ul id="search-results" class="search-results"></ul>
+  </div>
+</div>
+{% endif %}

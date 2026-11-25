@@ -1,0 +1,13 @@
+{%- comment -%}
+jekyll-paginate-v2의 paginator 객체로 이전/다음 페이지 링크를 그린다.
+al-folio 버전은 al_folio_core의 pagination.liquid를 썼는데 그 젬을 뺐으니 직접 만들었다.
+{%- endcomment -%}
+<nav class="pagination" aria-label="페이지 이동">
+  {%- if paginator.previous_page -%}
+    <a href="{{ paginator.previous_page_path | relative_url }}">이전</a>
+  {%- endif -%}
+  <span class="pagination-status">{{ paginator.page }} / {{ paginator.total_pages }}</span>
+  {%- if paginator.next_page -%}
+    <a href="{{ paginator.next_page_path | relative_url }}">다음</a>
+  {%- endif -%}
+</nav>

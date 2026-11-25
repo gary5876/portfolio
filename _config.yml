@@ -1,0 +1,174 @@
+# -----------------------------------------------------------------------------
+# 사이트 기본
+# -----------------------------------------------------------------------------
+
+title: "고준서"
+name: "고준서"
+contact_note: >
+  이메일이 가장 빠릅니다.
+description: >
+  백엔드 개발자 고준서. 카카오테크캠퍼스 백엔드 과정 수료, 대학 동아리 지원 서비스 동아리움을 팀에서 10개월 운영하며 통계, 공지, 이메일 알림 전담. 개인 프로젝트로 LLM 학습 서비스와 게임 AI. 코딩 에이전트가 만든 코드를 테스트와 통계로 검증하며 일합니다.
+footer_text: ""
+keywords: "고준서, 백엔드 개발자, Spring Boot, FastAPI, LLM, 포트폴리오"
+
+# 왼쪽 사이드바(작성자 프로필 카드)용. Minimal Mistakes의 author-profile.html이 이 값을 읽는다.
+author:
+  name: "고준서"
+  avatar: "/assets/img/avatar.png"
+  bio: "백엔드 개발자. 카카오테크캠퍼스 백엔드 과정 수료, AWS Certified AI Practitioner"
+  email: "jerry0622@naver.com"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/gary5876"
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/hi-d-357746213/"
+locale: "ko-KR"
+lang: ko
+
+url: "https://gary5876.github.io"
+baseurl: "/portfolio"
+
+# -----------------------------------------------------------------------------
+# 테마 / 화면 구성
+# -----------------------------------------------------------------------------
+
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "default"
+
+search_enabled: true # al_search(무거운 커맨드 팔레트) 대신 자체 구현한 가벼운 클라이언트사이드 검색
+enable_darkmode: true # MM 기본 기능이 아니라 직접 구현 (assets/js/theme.js, assets/css/main-dark.scss)
+
+external_services:
+  github_readme_stats_url: https://github-stats-extended.vercel.app
+repo_theme_light: default
+repo_theme_dark: dark
+
+# -----------------------------------------------------------------------------
+# 글
+# -----------------------------------------------------------------------------
+
+blog_name: 글
+blog_description: 문제 해결, 설계 결정, 공부 노트
+permalink: /blog/:year/:month/:day/:title/
+
+related_blog_posts:
+  enabled: true
+  max_related: 5
+
+# 우리 분류 이름(화면 표시용)
+category_labels:
+  troubleshooting: 문제 해결
+  decisions: 설계 결정
+  study: 공부 노트
+
+display_categories: [troubleshooting, decisions, study]
+
+category_descriptions:
+  troubleshooting: 실제로 겪은 장애와 버그를 어떻게 찾고 고쳤는지 남긴 글입니다.
+  decisions: 왜 이렇게 만들기로 했는지를 남긴 글입니다. 대안이 무엇이었고 무엇을 포기했는지까지 적었습니다.
+  study: 읽고 배운 것을 정리한 글입니다.
+
+# -----------------------------------------------------------------------------
+# 컬렉션
+# -----------------------------------------------------------------------------
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:path/
+
+# -----------------------------------------------------------------------------
+# Jekyll
+# -----------------------------------------------------------------------------
+
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+    span:
+      line_numbers: false
+    block:
+      line_numbers: false
+
+include: ["_pages"]
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - scripts
+
+plugins:
+  - jekyll-archives-v2
+  - jekyll-feed
+  - jekyll-include-cache
+  - jekyll-link-attributes
+  - jekyll-paginate-v2
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: "assets"
+    values:
+      sitemap: false
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      mermaid:
+        enabled: true
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: project
+
+pagination:
+  enabled: true
+
+# -----------------------------------------------------------------------------
+# 글 보관함(연도, 태그, 분류). jekyll-archives-v2, layout은 기본값 "archive" 사용
+# -----------------------------------------------------------------------------
+
+jekyll-archives:
+  posts:
+    enabled: [year, tags, categories]
+    permalinks:
+      year: "/blog/:year/"
+      tags: "/blog/:type/:name/"
+      categories: "/blog/:type/:name/"
+
+# -----------------------------------------------------------------------------
+# 외부 링크
+# -----------------------------------------------------------------------------
+
+external_links:
+  enabled: true
+  rel: external nofollow noopener
+  target: _blank
+
+# -----------------------------------------------------------------------------
+# SEO / 소셜
+# -----------------------------------------------------------------------------
+
+og_image: /assets/img/avatar.png
+
+# -----------------------------------------------------------------------------
+# 라이브러리 (CDN, MM 테마 밖에서 직접 로드)
+# -----------------------------------------------------------------------------
+
+mermaid_version: "10.7.0"
+pretendard_url: "https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+
+after_footer_scripts:
+  - /assets/js/theme.js
+  - /assets/js/search.js
+  - /assets/js/mermaid-setup.js
+
+sass:
+  quiet_deps: true

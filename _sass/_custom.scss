@@ -1,0 +1,567 @@
+/*******************************************************************************
+ * 이 사이트용 커스텀 스타일. al-folio 버전의 _sass/_typography.scss에 있던 규칙을
+ * MM의 Sass 변수 체계로 옮기고, MM엔 없는 요소(프로젝트 드롭다운, 검색 오버레이,
+ * 다크모드 토글 아이콘, 프로젝트 카드 그리드)를 새로 추가했다.
+ ******************************************************************************/
+
+// mermaid-setup.js가 코드펜스 원문을 숨길 때 붙이는 클래스. 이 규칙이 없으면
+// 렌더된 다이어그램 위에 flowchart TD 같은 원문 텍스트가 그대로 남아 보인다.
+.unloaded {
+  display: none !important;
+}
+
+body,
+.masthead,
+.page,
+.project-card,
+.page__footer {
+  font-family: "Pretendard Variable", Pretendard, Roboto, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  word-break: keep-all;
+}
+
+/* ---------------------------------------------------------------------------
+ * 네비게이션: 프로젝트 드롭다운, 검색/다크모드 버튼
+ * ------------------------------------------------------------------------- */
+
+// MM의 greedy-nav가 .visible-links에 overflow: hidden을 걸어 두는데(반응형 폭 측정용),
+// 이게 절대위치로 펼쳐지는 프로젝트 드롭다운 메뉴까지 잘라내 버린다. 데스크톱 폭에서는
+// 항목이 다 들어가서 hidden이 굳이 필요 없으니 visible로 되돌린다.
+.greedy-nav .visible-links {
+  overflow: visible;
+}
+
+.masthead__menu-item--dropdown {
+  position: relative;
+
+  &:hover .dropdown-menu,
+  &:focus-within .dropdown-menu {
+    display: block;
+  }
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 260px;
+  background: $background-color;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  padding: 0.4rem 0;
+  margin: 0;
+  list-style: none;
+  z-index: 20;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+  li a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: $text-color;
+    white-space: nowrap;
+
+    &:hover {
+      background: $form-background-color;
+      color: $link-color;
+    }
+  }
+}
+
+#search-toggle,
+#theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $masthead-link-color;
+  font-size: 1rem;
+  padding: 0.5rem;
+
+  &:hover {
+    color: $masthead-link-color-hover;
+  }
+}
+
+.search-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 10vh;
+
+  &[hidden] {
+    display: none;
+  }
+}
+
+.search-overlay__inner {
+  background: $background-color;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 6px;
+  padding: 1rem;
+  position: relative;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+#search-input {
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0.6rem 2.4rem 0.6rem 0.8rem;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  background: $background-color;
+  color: $text-color;
+}
+
+#search-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  color: $muted-text-color;
+}
+
+.search-results {
+  list-style: none;
+  margin: 0.8rem 0 0;
+  padding: 0;
+
+  li a {
+    display: block;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid $border-color;
+    color: $text-color;
+
+    &:hover .search-result-title {
+      color: $link-color;
+    }
+  }
+
+  .search-result-title {
+    font-weight: 600;
+  }
+
+  .search-result-category {
+    font-size: 0.8rem;
+    color: $muted-text-color;
+    margin-left: 0.5rem;
+  }
+
+  p {
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+    color: $muted-text-color;
+  }
+
+  .search-no-results {
+    color: $muted-text-color;
+    padding: 0.6rem 0;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 글 목록, 메타, 태그
+ * ------------------------------------------------------------------------- */
+
+blockquote {
+  font-size: 1.05rem;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.post-item {
+  padding: 1.1rem 0;
+  border-bottom: 1px solid $border-color;
+
+  h3 {
+    margin: 0 0 0.4rem;
+    font-size: 1em;
+    line-height: 1.4;
+  }
+
+  .post-title {
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $link-color;
+      text-decoration: underline;
+    }
+  }
+
+  p {
+    margin: 0 0 0.25rem;
+    font-size: 0.8em;
+    line-height: 1.6;
+  }
+
+  p.post-meta,
+  p.post-tags {
+    font-size: 0.7em;
+    margin: 0.3rem 0 0;
+  }
+}
+
+.post-meta {
+  color: $muted-text-color;
+  font-size: 0.9rem;
+}
+
+.post-tags a {
+  color: $muted-text-color;
+  margin-right: 0.5rem;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color;
+  }
+}
+
+.post-description {
+  color: $muted-text-color;
+}
+
+.tag-list {
+  margin: 0.4rem 0 0.8rem;
+}
+
+.tag-chip {
+  display: inline-block;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: $muted-text-color;
+  background: $code-background-color;
+  border-radius: 3px;
+  padding: 0.1rem 0.5rem;
+  margin: 0 0.3rem 0.3rem 0;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color;
+    text-decoration: none;
+  }
+}
+
+.kind-chip {
+  color: $link-color;
+  font-weight: 600;
+}
+
+.kind-rest {
+  font-size: 0.85rem;
+  color: $muted-text-color;
+  margin: 0 0.6rem 0.3rem 0;
+}
+
+.tag-index .tag-chip {
+  font-size: 0.95rem;
+  padding: 0.25rem 0.7rem;
+  margin: 0 0.4rem 0.5rem 0;
+}
+
+.tag-count {
+  color: $muted-text-color;
+  font-size: 0.8rem;
+  margin-left: 0.15rem;
+}
+
+/* ---------------------------------------------------------------------------
+ * 프로젝트
+ * ------------------------------------------------------------------------- */
+
+.project-facts {
+  display: grid;
+  grid-template-columns: 5rem 1fr;
+  align-items: baseline;
+  gap: 0.5rem 1.2rem;
+  margin: 1rem 0 1.2rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid $border-color;
+  border-bottom: 1px solid $border-color;
+  font-size: 0.85em;
+
+  // MM이 dt에 margin-top, dd에 0.75em을 걸어 둬서 라벨이 값보다 한 줄 아래로 밀리고
+  // 값만 작아졌다. 둘 다 같은 크기로 두고 첫 줄 기준선을 맞춘다.
+  dt,
+  dd {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.6;
+  }
+
+  dt {
+    color: $muted-text-color;
+    font-weight: 500;
+  }
+}
+
+.project-links a {
+  margin-right: 1.2rem;
+}
+
+// 카드 안 줄(분류, 제목, 요약, 역할, 스택, 저장소)을 subgrid로 묶어서, 같은 행 카드끼리는
+// 제목이 한 줄이든 세 줄이든 요약, 역할, 스택이 같은 높이에서 시작하게 한다.
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  column-gap: 1.2rem;
+  row-gap: 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.project-card {
+  display: grid;
+  grid-row: span 6;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  transition: border-color 0.15s;
+
+  > a {
+    display: grid;
+    grid-row: span 6;
+    grid-template-rows: subgrid;
+    row-gap: 0;
+    padding: 1.1rem 1.2rem 1rem;
+    color: inherit;
+    text-decoration: none;
+  }
+
+  &:hover {
+    border-color: $primary-color;
+  }
+
+  p,
+  h2 {
+    margin: 0;
+  }
+
+  .card-kind {
+    font-size: 0.65em;
+    color: $muted-text-color;
+    margin-bottom: 0.3rem;
+  }
+
+  .card-title {
+    font-size: 0.95em;
+    line-height: 1.35;
+    padding: 0 0 0.6rem;
+    margin-bottom: 0.7rem;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .card-text {
+    font-size: 0.75em;
+    line-height: 1.55;
+    margin-bottom: 0.7rem;
+  }
+
+  .card-role,
+  .card-stack {
+    font-size: 0.68em;
+    line-height: 1.55;
+    color: $muted-text-color;
+  }
+
+  .card-github {
+    align-self: end;
+    font-size: 0.65em;
+    color: $muted-text-color;
+    margin-top: 0.4rem;
+  }
+}
+
+// 프로젝트 목록처럼 카드가 여러 열로 깔리는 페이지는 MM이 오른쪽 목차 자리로 비워 둔
+// 여백까지 써서 3열로 편다. 머리말 설명은 읽기 폭을 유지한다.
+.page--wide {
+  @include breakpoint($x-large) {
+    padding-right: 0;
+  }
+
+  .post-description {
+    max-width: 42em;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 연혁
+ * ------------------------------------------------------------------------- */
+
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid $border-color;
+
+    &:first-child {
+      border-top: 1px solid $border-color;
+    }
+  }
+}
+
+.timeline-date {
+  flex: none;
+  width: 9rem;
+  font-size: 0.9rem;
+  color: $muted-text-color;
+}
+
+.timeline-body h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.05rem;
+}
+
+.timeline-body p {
+  margin: 0;
+  color: $muted-text-color;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .timeline li {
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .timeline-date {
+    width: auto;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 소개 페이지: 최근 글 표, 소셜
+ * ------------------------------------------------------------------------- */
+
+// MM의 table 기본값(display: block, 셀 0.75em, 머리 테두리)이 섞여 제목 링크가 설명보다
+// 작게 나오고 날짜와 제목 기준선이 어긋났다. 셀 크기를 직접 정하고 기준선으로 맞춘다.
+.latest-posts {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 0;
+  font-size: 0.85em;
+
+  td {
+    padding: 0.8rem 1rem 0.8rem 0;
+    vertical-align: baseline;
+    border: 0;
+    border-bottom: 1px solid $border-color;
+    font-size: 1em;
+  }
+}
+
+// 최근 글 제목은 h2 밑줄(MM 기본)만 남기고 링크 밑줄은 뺀다.
+h2 > a[href$="/blog/"] {
+  text-decoration: none;
+}
+
+.latest-posts-date {
+  white-space: nowrap;
+  width: 1%;
+  color: $muted-text-color;
+  font-size: 0.85em !important;
+}
+
+.latest-posts-title {
+  font-weight: 600;
+  color: $text-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $link-color;
+    text-decoration: underline;
+  }
+}
+
+.latest-posts-desc {
+  display: block;
+  margin-top: 0.2rem;
+  color: $muted-text-color;
+  font-size: 0.9em;
+  line-height: 1.55;
+}
+
+.social {
+  margin-top: 2rem;
+
+  .contact-icons a {
+    font-size: 1.4rem;
+    margin-right: 1rem;
+    color: $text-color;
+
+    &:hover {
+      color: $link-color;
+    }
+  }
+
+  .contact-note {
+    color: $muted-text-color;
+    margin-top: 0.5rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * 그림(머메이드)과 캡션
+ * ------------------------------------------------------------------------- */
+
+pre.mermaid {
+  background: transparent;
+  text-align: center;
+  overflow-x: auto;
+}
+
+.page__content p > em:only-child {
+  display: block;
+  text-align: center;
+  font-style: normal;
+  font-size: 0.9rem;
+  color: $muted-text-color;
+  margin-bottom: 1.2rem;
+}
+
+/* ---------------------------------------------------------------------------
+ * 저장소 카드 (repositories.md, GitHub 통계 이미지, 라이트/다크 전환)
+ * ------------------------------------------------------------------------- */
+
+.only-dark {
+  display: none;
+}
+
+html[data-theme="dark"] {
+  .only-light {
+    display: none;
+  }
+
+  .only-dark {
+    display: block;
+  }
+}
+
+.repositories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+
+  .repo img {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,21 @@
+{%- comment -%}
+al-folio 버전의 _includes/projects.liquid를 그대로 옮긴 것. include.project를 받아
+카드 하나를 그린다 (프로젝트 목록 페이지, 태그 페이지에서 씀).
+{%- endcomment -%}
+{%- assign project = include.project -%}
+{%- assign kind_name = "개인 프로젝트" -%}
+{%- if project.kind contains "팀" -%}{%- assign kind_name = "팀 프로젝트" -%}{%- endif -%}
+<div class="project-card">
+  <a href="{{ project.url | relative_url }}">
+    <p class="card-kind">{{ kind_name }}{% if project.period %}, {{ project.period | split: " (" | first }}{% endif %}</p>
+    <h2 class="card-title">{{ project.display_name | default: project.title }}</h2>
+    <p class="card-text">{{ project.summary | default: project.description }}</p>
+    {%- if project.role -%}<p class="card-text card-role">{{ project.role | replace: "내 담당: ", "" }}</p>{%- endif -%}
+    {%- if project.stack -%}
+    <p class="card-stack">{{ project.stack | join: ", " }}</p>
+    {%- endif -%}
+    {%- if project.github -%}
+    <p class="card-github"><i class="fab fa-github" aria-hidden="true"></i> 코드 저장소</p>
+    {%- endif -%}
+  </a>
+</div>

@@ -1,0 +1,9 @@
+{%- comment -%}
+MM의 head/custom.html 확장 지점. 404 페이지(_pages/404.md, redirect: true)에서
+3초 뒤 첫 페이지로 이동시키는 meta refresh, 그리고 파비콘(MM은 기본 제공 안 함)을 처리한다.
+{%- endcomment -%}
+{%- if page.redirect -%}
+<meta http-equiv="refresh" content="3; url={{ site.baseurl | prepend: site.url }}">
+{%- endif -%}
+<link rel="icon" href="{{ "/assets/img/avatar.png" | relative_url }}">
+<link rel="apple-touch-icon" href="{{ "/assets/img/avatar.png" | relative_url }}">
